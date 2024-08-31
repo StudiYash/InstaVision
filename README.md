@@ -1,4 +1,4 @@
-# InstaVision Bot 🎨
+# InstaVision 🎨
 
 **InstaVision** is a powerful AI-driven Telegram bot designed to transform your text descriptions into stunning, high-quality images using the DALL-E 3 API. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
 
