@@ -39,7 +39,7 @@
 - **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
 - **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
 
-## 📑 Comparing Various APIs with Examples
+## 📑 Comparing API Outputs
 
 | S.No | Description  | dall-e3                       | flux-schnell                  | sdxl-lightning-4step          |
 |------|--------------|-------------------------------|-------------------------------|-------------------------------|
