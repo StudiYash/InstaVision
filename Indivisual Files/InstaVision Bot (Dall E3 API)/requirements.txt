@@ -1,5 +1,0 @@
-python-telegram-bot==20.0
-nest_asyncio==1.5.1
-requests==2.31.0
-redis==4.6.0
-openai==0.28.0
