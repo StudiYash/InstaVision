@@ -11,6 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import replicate  # Import the replicate library
 import asyncio
 from queue import Queue
+import re
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -116,12 +117,20 @@ def generate_image_flux_schnell(prompt: str):
         logger.error(f"Error generating image with flux-schnell: {e}")
         raise Exception("There was an issue generating your image. Please try again later.")
 
+def escape_markdown(text):
+    escape_chars = r'\*_`\[\]()~>#+-=|{}.!'
+    return re.sub(r'([%s])' % re.escape(escape_chars), r'\\\1', text)
+
 async def send_image_to_group(image_path_or_url, user_id, username, description):
     try:
         # Convert the current time to IST
         utc_time = datetime.now(timezone.utc)
         ist_time = utc_time + timedelta(hours=5, minutes=30)
         current_time = ist_time.strftime("%Y-%m-%d %H:%M:%S")
+
+        # Escape markdown characters
+        username = escape_markdown(username)
+        description = escape_markdown(description)
 
         # Prepare the message with user details
         group_message = (
