@@ -39,6 +39,16 @@
 - **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
 - **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
 
+## 📑 Comparing Various APIs with Examples
+
+| S.No | Description  | dall-e3                       | flux-schnell                  | sdxl-lightning-4step          |
+|------|--------------|-------------------------------|-------------------------------|-------------------------------|
+| 01   | Some text 1  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+| 02   | Some text 2  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+| 03   | Some text 3  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+| 04   | Some text 4  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+| 05   | Some text 5  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+
 ## 🎉 Contributions
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
