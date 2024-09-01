@@ -43,11 +43,11 @@
 
 | S.No | Description  | dall-e3                       | flux-schnell                  | sdxl-lightning-4step          |
 |------|--------------|-------------------------------|-------------------------------|-------------------------------|
-| 01   | Some text 1  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
-| 02   | Some text 2  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
-| 03   | Some text 3  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
-| 04   | Some text 4  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
-| 05   | Some text 5  | ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) |
+| 01   | Ancient Forest Temple  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/03.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/03.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/03.jpg) |
+| 02   | Cyberpunk Samurai Duel  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/04.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/04.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/04.jpg) |
+| 03   | Alien Planet with Floating Islands  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/05.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/05.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/05.jpg) |
+| 04   | Deserted Amusement Park in the Future  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/07.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/07.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/07.jpg) |
+| 05   | Mythical Phoenix Rising from Ashes  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/08.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/08.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/08.jpg) |
 
 ## 🎉 Contributions
 Contributions are welcome! Feel free to open an issue or submit a pull request.
