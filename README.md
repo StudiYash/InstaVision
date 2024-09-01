@@ -17,17 +17,14 @@
     cd InstaVision
     ```
 
-2. **Set Up Your Environment**:
-   - Install the necessary Python packages by running:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - Configure your Telegram bot token and API keys.
+2. **Run the Bot using by choosing aprropriate API**:
+   - Visit the folder of your API Choice and follow the instructions of README.md file in those individual folders.
+   - Configure your Telegram bot token and API keys properly for flawless experience.
 
-3. **Run the Bot**:
-   ```bash
-   python InstaVision.py
-   ```
+3. **Refer the YouTube Videos given below for specific assistance**:
+   - InstaVision Bot (Dall E3 API) :- [YouTube Video](https://youtube.com)
+   - InstaVision Bot (flux-schnell API) :- [YouTube Video](https://youtube.com)
+   - InstaVision Bot (sdxl-lightning-4step API) :- [YouTube Video](https://youtube.com)
    
 ## 🛠️ Technologies Used
 
@@ -40,7 +37,6 @@
 
 - **Dall E3 API by OpenAI**: For more information, visit the [Official Dall E3 Documentation](https://help.openai.com/en/articles/8555480-dall-e-3-api).
 - **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
-- **Flux Dev Controlnet API by xlabs-ai**: For more information, visit the [Official Flux Dev Controlnet documentation](https://replicate.com/xlabs-ai/flux-dev-controlnet).
 - **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
 
 ## 🎉 Contributions
