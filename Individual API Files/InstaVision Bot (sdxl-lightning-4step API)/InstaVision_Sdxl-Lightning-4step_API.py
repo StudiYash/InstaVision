@@ -8,7 +8,7 @@ import io
 import redis
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import openai
+import replicate  # Import the replicate library
 import asyncio
 from queue import Queue
 
@@ -16,22 +16,22 @@ from queue import Queue
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Bot Constants
-TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')  # Add your bot token in the environment variables
-BOT_USERNAME = os.getenv('BOT_USERNAME')  # Add your bot's username in the environment variables
-GROUP_CHAT_ID = os.getenv('GROUP_CHAT_ID')  # Replace with your group's chat ID stored in the environment variables
+# Bot Constants (Replace these with your own credentials)
+TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'
+BOT_USERNAME = '@YOUR_BOT_USERNAME'
+GROUP_CHAT_ID = 'YOUR_GROUP_CHAT_ID'
 
-# Set OpenAI API key
-openai.api_key = os.getenv('OPENAI_API_KEY')  # Add your OpenAI API key in the environment variables
+# Set Replicate API token
+os.environ['REPLICATE_API_TOKEN'] = 'YOUR_REPLICATE_API_TOKEN'
 
-# Connect to Redis
+# Connect to Redis (Replace these with your own credentials)
 def connect_redis():
     try:
         r = redis.Redis(
-            host=os.getenv('REDIS_HOST'),   # Replace with your Redis server's hostname or IP address, retrieved from environment variables.
-            port=os.getenv('REDIS_PORT'),   # Replace with your Redis server's port number, retrieved from environment variables.
-            password=os.getenv('REDIS_PASSWORD'),   # Replace with your Redis server's password, retrieved from environment variables.
-            db=0    # The Redis database number to connect to (default is 0).
+            host='YOUR_REDIS_HOST',
+            port=YOUR_REDIS_PORT,
+            password='YOUR_REDIS_PASSWORD',
+            db=0
         )
         # Test connection
         r.ping()
@@ -99,19 +99,16 @@ def check_network_connection():
         logger.error(f"Network error: {e}")
         return False
 
-def generate_image_dalle(prompt: str):
+def generate_image_sdxl(prompt: str):
     try:
-        response = openai.Image.create(
-            prompt=prompt,
-            n=1,
-            size="1024x1024"
+        output = replicate.run(
+            "bytedance/sdxl-lightning-4step:5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f",
+            input={"prompt": prompt}
         )
-        return response['data'][0]['url']
-    except openai.error.AuthenticationError:
-        raise Exception("Image generation system is currently facing an issue. Please try again later.")
+        return output[0]  # Assuming the output URL is the first item in the list
     except Exception as e:
-        logger.error(f"Error generating image with DALL-E: {e}")
-        raise Exception("Your request was rejected as a result of our safety system. Your prompt may contain text that is not allowed by our safety system.")
+        logger.error(f"Error generating image with sdxl-lightning-4step: {e}")
+        raise Exception("There was an issue generating your image. Please try again later.")
 
 async def send_image_to_group(image_path_or_url, user_id, username, description):
     try:
@@ -189,8 +186,8 @@ async def process_queue():
             # Ensure that we're running in the correct event loop
             loop = asyncio.get_event_loop()
             try:
-                # Generate high-quality image using DALL-E
-                image_url = await loop.run_in_executor(None, generate_image_dalle, description)
+                # Generate high-quality image using sdxl-lightning-4step
+                image_url = await loop.run_in_executor(None, generate_image_sdxl, description)
                 await app.bot.send_photo(chat_id=user_chat_id, photo=image_url)
                 await send_image_to_group(image_url, user_id, username, description)
             except Exception as e:

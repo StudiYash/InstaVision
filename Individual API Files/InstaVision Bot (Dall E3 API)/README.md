@@ -27,7 +27,7 @@ Before running the code, ensure you have the following prerequisites installed a
    Use `pip` to install the necessary Python packages.
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirements_dalle3.txt
    ```
 
 3. **Set Up Environment Variables:**
