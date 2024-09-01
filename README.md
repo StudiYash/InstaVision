@@ -35,9 +35,9 @@
 ## 📦 Image Generation APIs
 
 - **Dall E3 API by OpenAI**: For more information, visit the [Official Dall E3 Documentation](https://help.openai.com/en/articles/8555480-dall-e-3-api).
-- **Flux Schnell API by black-forest-labs**: For more information, visit the [official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
-- **Flux Dev Controlnet API by xlabs-ai**: For more information, visit the [official Flux Dev Controlnet documentation](https://replicate.com/xlabs-ai/flux-dev-controlnet).
-- **Sdxl Lightning 4step API by bytedance**: For more information, visit the [official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
+- **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
+- **Flux Dev Controlnet API by xlabs-ai**: For more information, visit the [Official Flux Dev Controlnet documentation](https://replicate.com/xlabs-ai/flux-dev-controlnet).
+- **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
 
 ## 🎉 Contributions
 Contributions are welcome! Feel free to open an issue or submit a pull request.
