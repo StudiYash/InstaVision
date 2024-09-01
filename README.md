@@ -18,13 +18,17 @@
     ```
 
 2. **Set Up Your Environment**:
-   - Install the necessary Python packages as per your choice of Image Generation API.
+   - Install the necessary Python packages by running:
+     ```bash
+     pip install -r requirements.txt
+     ```
    - Configure your Telegram bot token and API keys.
 
 3. **Run the Bot**:
    ```bash
-   python instavision_bot.py
-
+   python InstaVision.py
+   ```
+   
 ## 🛠️ Technologies Used
 
 - **Python**: The core language for bot logic and processing.
