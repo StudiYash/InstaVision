@@ -21,10 +21,8 @@
    - Visit the folder of your API Choice and follow the instructions of README.md file in those individual folders.
    - Configure your Telegram bot token and API keys properly for flawless experience.
 
-3. **Refer the YouTube Videos given below for specific assistance**:
-   - InstaVision Bot (Dall E3 API) :- [YouTube Video](https://youtube.com)
-   - InstaVision Bot (flux-schnell API) :- [YouTube Video](https://youtube.com)
-   - InstaVision Bot (sdxl-lightning-4step API) :- [YouTube Video](https://youtube.com)
+3. **Refer the YouTube Video given below for specific assistance**:
+    [Official InstaVision Setup Video](https://youtu.be/EOWHH2HvRpo)
    
 ## 🛠️ Technologies Used
 
