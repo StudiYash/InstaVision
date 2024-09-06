@@ -1,4 +1,4 @@
-# InstaVision 🎨(https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/03.jpg)
+# ![InstaVision](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Logo.png)
 
 **InstaVision** is a powerful AI-driven Telegram Bot designed to transform your text descriptions into stunning, high-quality images using various Image Generation APIs. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
 
