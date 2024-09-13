@@ -1,6 +1,6 @@
 # InstaVision Bot using Stable Diffusion based Flux Schnell API
 
-InstaVision Bot is a Telegram bot that generates high-quality images based on user-provided text descriptions using the Flux Schnell API made by black-forest-labs. The bot also manages user request limits and integrates with a Redis database for storing user data.
+InstaVision Bot is a Telegram bot that generates high-quality images based on user-provided text descriptions using the Flux Schnell API made by black-forest-labs. The bot also manages user request limits and integrates with a Redis database for storing user data. The bot also allows to ban certain words and also ban the users permanantly from using the bot. 
 
 ## Prerequisites
 
@@ -42,6 +42,7 @@ Before running the code, ensure you have the following prerequisites installed a
    REDIS_HOST=your-redis-host
    REDIS_PORT=your-redis-port
    REDIS_PASSWORD=your-redis-password
+   BANNED_WORDS="Word1","Word2"  # Add your desired ban Words
    ```
 
    Replace the placeholder values with your actual credentials.
@@ -76,9 +77,10 @@ The bot should start polling, and you'll see `Polling...` in your terminal, indi
   - Each user can generate up to 5 high-quality images every 24 hours. The bot will notify you if you exceed this limit. You can also modify this limit as per your requirement.
 
 ## Error Handling
-
 The bot includes error handling for network issues, API errors, and Redis connection failures. If an error occurs, the bot will notify you with an appropriate message.
 
-## Contributing
+## Banned Words
+The bot contains a list of certain words that can be banned from giving as an input to the bot. If the user uses the banned word then the user gets instantly and permanantly banned from using the bot.
 
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request to improve the bot.
