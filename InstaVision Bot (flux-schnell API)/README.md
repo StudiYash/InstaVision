@@ -1,6 +1,6 @@
 # InstaVision Bot using Stable Diffusion based Flux Schnell API
 
-InstaVision Bot is a Telegram bot that generates high-quality images based on user-provided text descriptions using the Flux Schnell API made by black-forest-labs. The bot also manages user request limits and integrates with a Redis database for storing user data. The bot also allows to ban certain words and also ban the users permanantly from using the bot. 
+InstaVision Bot is a Telegram bot that generates high-quality images based on user-provided text descriptions using the Flux Schnell API made by black-forest-labs. The bot also manages user request limits and integrates with a Redis database for storing user data. The bot also allows to ban certain words and also ban the users permanantly from using the bot. The bot also adds a Watermark to every image that it generates.
 
 ## Prerequisites
 
@@ -43,6 +43,7 @@ Before running the code, ensure you have the following prerequisites installed a
    REDIS_PORT=your-redis-port
    REDIS_PASSWORD=your-redis-password
    BANNED_WORDS="Word1","Word2"  # Add your desired ban Words
+   font=ImageFont.truetype("location_of_font_file", font_size)  # Ensure 'highsens.otf' path is correct or replace with your desired font and path according to it.
    ```
 
    Replace the placeholder values with your actual credentials.
@@ -81,6 +82,9 @@ The bot includes error handling for network issues, API errors, and Redis connec
 
 ## Banned Words
 The bot contains a list of certain words that can be banned from giving as an input to the bot. If the user uses the banned word then the user gets instantly and permanantly banned from using the bot.
+
+## Watermark
+The bot also adds a Watermark on every image that it generates. The Watermark text is customizable and is by default it is set to the word "InstaVision". The Watermark Font, Watermark Color and Watermark Background Color all are customizable and by default the Watermark Font is set to Highsens 400 font. 
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request to improve the bot.
