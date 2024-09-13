@@ -29,7 +29,8 @@ os.environ['REPLICATE_API_TOKEN'] = 'YOUR_REPLICATE_API_TOKEN'  # Replace with y
 # List of banned words
 BANNED_WORDS = ["Word1","Word2","Word3"]  # Add the words that you dont want to the user to use.
 
-from PIL import Image, ImageDraw, ImageFont
+# Path to store local images
+LOCAL_IMAGE_FOLDER = "/content/drive/MyDrive/YourFolderPath/"  # Replace with your actual folder path
 
 # Function to add watermark with Bahnschrift Semibold font, adjustable size, and color, and a background box
 def add_watermark(input_image_path, output_image_path, watermark_text="InstaVision", font_size=30, text_color=(255, 130, 80, 128), bg_color=(0, 0, 0, 128)):
@@ -82,9 +83,8 @@ def connect_redis():
             port=YOUR_REDIS_PORT,  # Replace with your Redis Port
             password='YOUR_REDIS_PASSWORD',    # Replace with your Redis Password
             db=0,
-            decode_responses=True  # Ensure responses are decoded into Python strings
+            decode_responses=True
         )
-        # Test connection
         r.ping()
         logger.info("Connected to Redis successfully.")
         return r
@@ -106,23 +106,17 @@ def check_and_update_user_limit(user_id):
         current_time = datetime.now()
         reset_limit_hours = 24
 
-        # Get current request count and last request time
         request_count = r.hget(user_id, 'request_count')
         last_request_time = r.hget(user_id, 'last_request_time')
 
         if request_count is None or last_request_time is None:
-            # Initialize values if not present
             r.hset(user_id, mapping={'request_count': 1, 'last_request_time': current_time.strftime("%Y-%m-%d %H:%M:%S")})
             logger.info(f"User {user_id}: Initialized request count and time.")
             return True
 
-        # Convert request_count to an integer
         request_count = int(request_count)
-
-        # Decode and convert last_request_time
         last_request_time = datetime.strptime(last_request_time, "%Y-%m-%d %H:%M:%S")
 
-        # Reset the count if 24 hours have passed
         if current_time - last_request_time > timedelta(hours=reset_limit_hours):
             r.hset(user_id, mapping={'request_count': 1, 'last_request_time': current_time.strftime("%Y-%m-%d %H:%M:%S")})
             logger.info(f"User {user_id}: Reset request count and time after 24 hours.")
@@ -131,10 +125,9 @@ def check_and_update_user_limit(user_id):
         if request_count >= 5:
             logger.info(f"User {user_id} has reached the limit of 5 high-quality images in {reset_limit_hours} hours.")
             if request_count == 5:
-                r.hincrby(user_id, 'request_count', 1)  # Increment to prevent repeated messages
+                r.hincrby(user_id, 'request_count', 1)
             return False
 
-        # Increment the request count
         r.hincrby(user_id, 'request_count', 1)
         logger.info(f"User {user_id}: Incremented request count = {request_count + 1}")
         return True
@@ -147,7 +140,6 @@ def ban_user(user_id):
     try:
         if not r:
             raise redis.ConnectionError("Cannot connect to Redis")
-
         r.hset(user_id, 'banned', 1)
         logger.info(f"User {user_id} has been banned.")
         return True
@@ -160,7 +152,6 @@ def is_user_banned(user_id):
     try:
         if not r:
             raise redis.ConnectionError("Cannot connect to Redis")
-
         banned_status = r.hget(user_id, 'banned')
         return banned_status is not None
     except Exception as e:
@@ -291,6 +282,17 @@ async def process_queue():
                 # Watermark the image
                 output_image_path = f"watermarked_image_{user_id}.png"
                 add_watermark(input_image_path, output_image_path, "InstaVision")
+
+                # Generate timestamped filename: UserID_Date_Time
+                current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+                local_image_copy_path = os.path.join(LOCAL_IMAGE_FOLDER, f"{user_id}_{current_time}.png")
+
+                # Save the post-watermarked image in the local folder with the timestamped filename
+                with open(local_image_copy_path, 'wb') as local_f:
+                    watermarked_img = Image.open(output_image_path)
+                    watermarked_img.save(local_f, format="PNG")  # Save watermarked image
+
+                logger.info(f"Watermarked image saved locally at {local_image_copy_path} for user {user_id}")
 
                 # Send the watermarked image to the user and group
                 await app.bot.send_photo(chat_id=user_chat_id, photo=open(output_image_path, 'rb'))
