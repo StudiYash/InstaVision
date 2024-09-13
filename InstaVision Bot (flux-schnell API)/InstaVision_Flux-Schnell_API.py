@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageFont
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Bot Constants (Replace these with your own credentials) 
+# Bot Constants (Replace these with your own credentials)
 TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'  # Replace with your actual bot token
 BOT_USERNAME = '@YOUR_BOT_USERNAME'  # Add your bot's username here
 GROUP_CHAT_ID = 'YOUR_GROUP_CHAT_ID'  # Replace with your group's chat ID
@@ -216,14 +216,37 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         welcome_message = (
-            "Hello! I am InstaVision Bot made for generating stunning images based on descriptions.\n"
-            "You can generate 5 high-quality images every 24 hours.\n"
-            "Have a great time generating images!"
+            "Hello! I am InstaVision Bot made for generating stunning images based on descriptions.🤩\n"
+            "You can generate 5 high-quality images every 24 hours.💯\n"
+            "Type /help to understand what type of input the bot requires. 🆘" 
+            "Have a great time generating images!😁"
         )
         await update.message.reply_text(welcome_message)
     except Exception as e:
         logger.error(f"Error in start_command: {e}")
         await update.message.reply_text('An unexpected error occurred. Please try again later.')
+
+# New help command providing instructions to the user
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    try:
+        help_message = (
+            "🆘 **InstaVision Bot Help** 🆘\n\n"
+            "📜 **How to Use the Bot**:\n"
+            "1. Start by providing a detailed description of the image you want. Be specific about features like colors, styles, and elements.\n"
+            "2. For example, you can write: 'A peaceful beach scene at sunset with palm trees and a gentle ocean breeze.'\n\n"
+            "📷 **Image Generation**:\n"
+            "- The bot can generate various kinds of images, but it is recommended to describe scenes or objects clearly.\n"
+            "- You can generate up to **5 high-quality images every 24 hours**.\n\n"
+            "🚫 **Banned Words**:\n"
+            f"{', '.join(BANNED_WORDS)}\n\n"
+            "📝 **Important Notes**:\n"
+            "- Please refrain from using inappropriate language, or you will be banned instantly and permanantly from using this bot.\n"
+            "- This bot generates images based on your prompt. Ensure your prompt is clear and detailed for the best results."
+        )
+        await update.message.reply_text(help_message, parse_mode="Markdown")
+    except Exception as e:
+        logger.error(f"Error in help_command: {e}")
+        await update.message.reply_text('An unexpected error occurred while displaying the help information.')
 
 async def handle_text_confirmation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
@@ -326,6 +349,7 @@ if __name__ == '__main__':
     loop.create_task(process_queue())
 
     app.add_handler(CommandHandler('start', start_command))
+    app.add_handler(CommandHandler('help', help_command))  # Help command handler added
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_confirmation))
     app.add_handler(MessageHandler(~filters.TEXT, handle_non_text))  # Catch non-text inputs
     app.add_error_handler(error)

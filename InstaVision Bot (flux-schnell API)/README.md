@@ -78,6 +78,9 @@ The bot should start polling, and you'll see `Polling...` in your terminal, indi
 - **Request Limit:**
   - Each user can generate up to 5 high-quality images every 24 hours. The bot will notify you if you exceed this limit. You can also modify this limit as per your requirement.
 
+- **Help Command:**
+  - Send `/help` to the bot to receive a help message. The help command provides detailed instructions on how to use the bot, including prompt guidelines and a list of banned words.
+
 ## Error Handling
 The bot includes error handling for network issues, API errors, and Redis connection failures. If an error occurs, the bot will notify you with an appropriate message.
 
