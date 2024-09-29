@@ -68,4 +68,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 - **Contributors**: See the list of contributors [here](https://github.com/StudiYash/InstaVision/blob/main/CONTRIBUTORS.md).
 
-Made with ❤️ by Yash Shukla
+Made with ❤️ by [Yash Shukla](https://www.linkedin.com/in/yash-shukla-2024aiguy/)
