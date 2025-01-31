@@ -47,6 +47,21 @@
 | 04   | Deserted Amusement Park in the Future  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/07.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/07.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/07.jpg) |
 | 05   | Mythical Phoenix Rising from Ashes  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/08.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/08.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/08.jpg) |
 
+
+## 🌍 Real-Life Usage
+
+InstaVision has been successfully utilized in various real-world events, showcasing its versatility and impact. Here are some notable instances:
+
+### 📌 01) Alampata 2024 - VPKBIET's Ganeshotsav Celebration
+
+- **Event:** Alampata 2024, an annual Ganeshotsav festival at VPKBIET
+- **Date:** August 7, 2024 - August 17, 2024
+- **Theme:** Technology and AI Integration
+- **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
+- **Images Generated:** **642** Images
+- **Report:** [📄 Read Full Report](https://github.com/StudiYash/InstaVision/blob/main/Real%20Life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
+
+
 ## 📄 License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. For more details, please refer to the [LICENSE](https://github.com/StudiYash/InstaVision/blob/main/LICENSE) file in the repository.
