@@ -1,4 +1,4 @@
-# Real-Time Usage of InstaVision
+# Real-Lime Usage of InstaVision
 
 This section showcases how **InstaVision** has been applied in real-life events and competitions, demonstrating its practical value in generating AI-powered images.
 
@@ -9,7 +9,8 @@ This section showcases how **InstaVision** has been applied in real-life events 
 - **Theme:** Technology and AI Integration
 - **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
 - **Images Generated:** **642** Images
-- **Report:** [📄 Read Full Report](https://github.com/StudiYash/InstaVision/blob/main/Real%20Life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
+
+    [![📄 Alampata 2024 Report](https://img.shields.io/badge/View-Alampata%202024%20Report-blue?style=for-the-badge&logo=Adobe)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
 
 ### How InstaVision Contributed:
 1. Enabled students to generate AI-powered images through a **Telegram Bot Image Generative Competition**.
