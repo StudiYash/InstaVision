@@ -1,4 +1,6 @@
-# Updating the Path for **HIGHSENS 400.otf** and **instavision_metrics.xlxs** and **requirements.txt** in *InstaVision.py*
+# Support Files for *InstaVision.py*
+
+## Updating the Path for **HIGHSENS 400.otf** and **instavision_metrics.xlxs** and **requirements.txt** in *InstaVision.py*
 
 Hello, brilliant developer! If you’ve just created (or moved) the **HIGHSENS 400.otf** and **instavision_metrics.xlxs** and **requirements.txt** and need to ensure our main `InstaVision.py` file knows where to find it, follow these friendly instructions.
 
