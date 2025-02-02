@@ -62,7 +62,7 @@ for folder in [SDXL_LIGHTNING_FOLDER, FLUX_SCHNELL_FOLDER, DALLE_FOLDER]:
     if not os.path.exists(folder):
         os.makedirs(folder)
 
-EXCEL_FILE_PATH = "instavision_metrics.xlsx"
+EXCEL_FILE_PATH = "instavision_metrics.xlsx Path"
 
 # User role configurations
 unlimited_users = ['USERNAME1', 'USERNAME2']       # e.g. admin users
@@ -350,7 +350,7 @@ def add_watermark(
         draw = ImageDraw.Draw(watermark)
 
         try:
-            font = ImageFont.truetype("HIGHSENS 400.otf", font_size)
+            font = ImageFont.truetype("HIGHSENS 400.otf Path", font_size)
         except IOError:
             logger.warning("Specified font not found. Using default font.")
             font = ImageFont.load_default()
