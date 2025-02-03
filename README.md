@@ -45,9 +45,11 @@
 
 ### Watch the Setup Video
 
-<a href="https://www.youtube.com/watch?v=EOWHH2HvRpo" target="_blank">
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=EOWHH2HvRpo" target="_blank">
   <img src="https://img.youtube.com/vi/EOWHH2HvRpo/0.jpg" alt="InstaVision Setup Video" width="600" height="350">
-</a>
+  </a>
+</div>
 
 Click the image above to watch the setup video for InstaVision!
 
