@@ -1,52 +1,103 @@
 # ![InstaVision](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Logo.png)
 
+## Project Introduction 🛡️
+
+### Abstract 
 **InstaVision** is a powerful AI-driven Telegram Bot designed to transform your text descriptions into stunning, high-quality images using various Image Generation APIs. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
 
-## 🌟 Features
+### Features
 
-- **High-Quality Image Generation**: Generate up to 5 high-quality images every 24 hours using various Image Generation APIs.
+- **High-Quality Image Generation**: Generate unlimited number of  high-quality images using various Image Generation APIs.
 - **Simultaneous Request Handling**: Capable of processing up to 50 simultaneous requests, ensuring fast and efficient image creation.
-- **Rate Limiting**: Enforces user limits to prevent abuse, with a customizable rate-limiting system.
+- **Rate Limiting**: Enforces user limits to prevent abuse, with a customizable rate-limiting system. The rate-limiting system supports unlimited users, privileged users (50 images/day), and default users (5 images/day).
 - **Group Image Sharing**: Automatically shares generated images in a specified Telegram group with detailed user information.
+- **Banned Words Detection**: Identifies and restricts the use of inappropriate words in prompts to maintain system integrity.
+- **Banned User Management**: Implements temporary and permanent bans for users violating policies, managed via Redis.
+- **Translation to English**: Automatically detects the input language and translates non-English prompts to English for processing. Supports in total 80 different languages from various countries.
+- **Watermarking**: Adds a customizable watermark to every generated image to preserve brand identity and discourage misuse. Also allows the use of custom fonts for watermarking, with a fallback to default fonts if unavailable.
+- **Error Handling**: Includes robust error handling with email notifications for critical issues like API failures or image storage errors.
+- **Feedback System**: Allows users to provide feedback directly through the bot, with automated email notifications sent to administrators.
+- **Excel Metrics Tracking**: Tracks user activity, usage statistics, and model-specific metrics in an organized Excel file. Logs all bot activities, including user interactions and system errors, for monitoring and debugging.
+- **User-Friendly Commands**: Offers intuitive commands for easy interaction, including `/start`, `/help`, `/feedback`, and model-specific commands.
+- **Local Storage**: Saves generated and watermarked images in structured local folders for easy access and organization.
 
-## 🚀 Getting Started
+**Index Terms:** AI-driven Telegram Bot, High-Quality Image Generation, Image Generation APIs, Redis Database,  Watermarking, Rate Limiting, Simultaneous Request Handling, Custom Error Handling, User Feedback System, Banned Words Detection, Translation to English, Excel Metrics Tracking, Async Request Queue, Real-Time Logging.
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/StudiYash/InstaVision.git
-    cd InstaVision
-    ```
+### Project Timeline 
 
-2. **Run the Bot by Choosing the Appropriate API**:
-   - Visit the folder of your API Choice and follow the instructions of the `README.md` file in those individual folders.
-   - Configure your Telegram bot token and API keys properly for a flawless experience.
+- **Start Date**: 22nd August 2024
+- **End Date**: 6th February 2025
+- **Total Time Required**: 5 Months and 16 Days
 
-3. **Refer to the YouTube Video for Assistance**:
-    [Official InstaVision Setup Video](https://youtu.be/EOWHH2HvRpo)
-   
-## 🛠️ Technologies Used
+### My Introduction 
 
-- **Python**: The core language for bot logic and processing.
-- **Image Generation APIs**: For generating high-quality images from text.
-- **Redis**: To manage user limits and request tracking.
-- **Telegram Bot API**: For bot interactions and image sharing.
+| Name                   | GitHub Profile | LinkedIn Profile |
+|--------------------------------|----------------|------------------|
+| **Yash Suhas Shukla**          | [GitHub](https://github.com/StudiYash) | [LinkedIn](https://www.linkedin.com/in/yash-shukla-2024aiguy/) |
+
+<div align="center">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/About%20Me.png" alt="Introduction Image" width="800" height="450">
+</div>
+
+---
 
 ## 📦 Image Generation APIs
 
 - **DALL·E 3 API by OpenAI**: For more information, visit the [Official DALL·E 3 Documentation](https://help.openai.com/en/articles/8555480-dall-e-3-api).
 - **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
 - **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
+- **Imagen3 API by Google**: For more information, visit the [Official Imagen3 Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview).
 
 ## 📑 Comparing API Outputs
 
-| S.No | Description  | DALL·E 3                       | Flux Schnell                  | SDXL Lightning 4step          |
-|------|--------------|-------------------------------|-------------------------------|-------------------------------|
-| 01   | Ancient Forest Temple  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/03.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/03.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/03.jpg) |
-| 02   | Cyberpunk Samurai Duel  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/04.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/04.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/04.jpg) |
-| 03   | Alien Planet with Floating Islands  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/05.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/05.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/05.jpg) |
-| 04   | Deserted Amusement Park in the Future  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/07.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/07.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/07.jpg) |
-| 05   | Mythical Phoenix Rising from Ashes  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/08.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(flux-schnell%20API)/flux_schnell_examples/08.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Bot%20(sdxl-lightning-4step%20API)/sdxl_lightning_4step_examples/08.jpg) |
+| S.No | Description  | DALL·E 3                       | Flux Schnell                  | SDXL Lightning          | Imagen3                       |
+|------|--------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
+| 01   | Ancient Forest Temple  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/03.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/03.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/03.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/03.png) |
+| 02   | Cyberpunk Samurai Duel  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/04.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/04.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/04.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/04.png) |
+| 03   | Alien Planet with Floating Islands  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/05.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/05.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/05.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/05.png) |
+| 04   | Deserted Amusement Park in the Future  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/07.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/07.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/07.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/07.png) |
+| 05   | Mythical Phoenix Rising from Ashes  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/08.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/08.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/08.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/08.png) |
 
+---
+
+## Project Representation 🎉
+
+1. **Innovation Fest 2024 at Vishwakarma University Pune**
+
+    The **InstaVision** project was proudly showcased at the **Innovation Fest 2024** on **24th October 2024**. Held at the **Vishwakarma University, Pune**, this prestigious event was sponsored by the **Binghamton University** and **Thomas J. Watson College of Engineering and Applied Science**.
+
+    The project secured a **Consolation prize of ₹1000**. Below are the Consolation certificate awarded to me for presenting InstaVision at Innovation Fest 2024.
+
+    <p align="center">
+    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/Vishwakarma%20University%20Innovation%20Fest%202024/Yash.jpg" alt="Innovation Fest 2024 Certificate" width="60%" />
+    </p>
+
+2. **Techmanthan 2025 at JSPM College Pune**
+
+    The **InstaVision** project was proudly showcased at the **Techmanthan 2025** which was a **National Level Technical Fest** and which was organized on **28th - 29th January 2025**. Held at the **JSPM College, Pune**. This Competition offered me a valuable platform for knowledge exchange, constructive feedback, and networking with other innovators, researchers, and industry experts.
+
+    Below is the participation certificate awarded to me for presenting InstaVision at Techmanthan 2025.
+
+    <p align="center">
+    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/JSPM%20TechManthan%202025/Yash.jpg" alt="Techmanthan 2025 Certificate" width="60%" />
+    </p>
+
+---
+
+## Project Copyright ©️
+
+Securing copyright for this project marked an important milestone in safeguarding my innovation and intellectual property. Copyrighting my project not only protects the unique aspects of my Image Generation system but also reinforces my commitment to creating responsible AI products. By copyrighting this idea, I have ensured that the methods, models, and technological advances developed through this project remain attributed to me.
+
+### Copyright Publication Date: 22nd November 2024
+
+### Certificate of Copyright 🎓
+<p align="center">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Copyright/Copyright%20Certificate.png" alt="Copyright Certificate" width="60%" />
+</p>
+
+> *Establishing copyright protection is a proactive step towards fostering innovation, ensuring recognition, and laying a foundation for future advancements in image generation.*
+
+---
 
 ## 🌍 Real-Life Usage
 
@@ -58,9 +109,15 @@ InstaVision has been successfully utilized in various real-world events, showcas
 - **Date:** August 7, 2024 - August 17, 2024
 - **Theme:** Technology and AI Integration
 - **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
-- **Images Generated:** **642** Images
-- **Report:** [📄 Read Full Report](https://github.com/StudiYash/InstaVision/blob/main/Real%20Life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
+- **Images Generated:** **702** Images.
+  
+  [![Alampata 2024 Images](https://img.shields.io/badge/VISIT-Alampata%202024%20Images-gold?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/Alampata%202024)
 
+- **Alampata 2024 Report:** 
+  
+  [![Alampata 2024 Report](https://img.shields.io/badge/VISIT-Alampata%202024%20Report-indigo?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
+
+--- 
 
 ## 📄 License
 
