@@ -1,6 +1,6 @@
 # ![InstaVision](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Logo.png)
 
-## Project Introduction 🛡️
+## Project Introduction 🛡️ 
 
 ### Abstract 
 **InstaVision** is a powerful AI-driven Telegram Bot designed to transform your text descriptions into stunning, high-quality images using various Image Generation APIs. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
@@ -41,14 +41,26 @@
 
 ---
 
-## 📦 Image Generation APIs
+## Project Setup 🎥 
+
+### Watch the Setup Video
+
+<a href="https://www.youtube.com/watch?v=EOWHH2HvRpo" target="_blank">
+  <img src="https://img.youtube.com/vi/EOWHH2HvRpo/0.jpg" alt="InstaVision Setup Video" width="600" height="350">
+</a>
+
+Click the image above to watch the setup video for InstaVision!
+
+
+---
+## Image Generation APIs 📦 
 
 - **DALL·E 3 API by OpenAI**: For more information, visit the [Official DALL·E 3 Documentation](https://help.openai.com/en/articles/8555480-dall-e-3-api).
 - **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
 - **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
 - **Imagen3 API by Google**: For more information, visit the [Official Imagen3 Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview).
 
-## 📑 Comparing API Outputs
+## Comparing API Outputs 📑 
 
 | S.No | Description  | DALL·E 3                       | Flux Schnell                  | SDXL Lightning          | Imagen3                       |
 |------|--------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
@@ -90,7 +102,7 @@ Securing copyright for this project marked an important milestone in safeguardin
 
 ### Copyright Publication Date: 22nd November 2024
 
-### Certificate of Copyright 🎓
+### Certificate of Copyright 
 <p align="center">
   <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Copyright/Copyright%20Certificate.png" alt="Copyright Certificate" width="60%" />
 </p>
@@ -99,11 +111,11 @@ Securing copyright for this project marked an important milestone in safeguardin
 
 ---
 
-## 🌍 Real-Life Usage
+## Real-Life Usage 🌍 
 
 InstaVision has been successfully utilized in various real-world events, showcasing its versatility and impact. Here are some notable instances:
 
-### 📌 01) Alampata 2024 - VPKBIET's Ganeshotsav Celebration
+### 01) Alampata 2024 - VPKBIET's Ganeshotsav Celebration
 
 - **Event:** Alampata 2024, an annual Ganeshotsav festival at VPKBIET
 - **Date:** August 7, 2024 - August 17, 2024
@@ -119,7 +131,7 @@ InstaVision has been successfully utilized in various real-world events, showcas
 
 --- 
 
-## 📄 License
+## License 📄 
 
 This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. For more details, please refer to the [LICENSE](https://github.com/StudiYash/InstaVision/blob/main/LICENSE) file in the repository.
 
@@ -131,7 +143,7 @@ Quick Overview regarding the permissions of usage of this project can be found o
 
 ![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 
-## 🎉 Contributions
+## Contributions 🎉 
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 - **Contributor License Agreement (CLA)**: By submitting a pull request, you confirm that you have read and agree to the terms of the [Contributor License Agreement (CLA)](https://github.com/StudiYash/InstaVision/blob/main/CLA.md).
