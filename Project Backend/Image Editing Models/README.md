@@ -90,7 +90,7 @@ Here’s the list of 8 image editing models available in this folder:
 ## 4. How to Use
 
 1. **Explore the Models**: Navigate to individual subfolders for model-specific documentation and examples.
-2. **Input Options**: Each model has unique input requirements (e.g., images, masks, or text instructions). Refer to the respective README files for details.
+2. **Input Options**: Each model has unique input requirements (e.g., images, masks, or text instructions).
 3. **Custom Parameters**: Adjust settings such as resolution or filter strength for tailored results.
 4. **Output**: Save the edited images or process them further as needed.
 

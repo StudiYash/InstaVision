@@ -48,7 +48,7 @@ The **Project Frontend** folder is the user interface layer of the **InstaVision
 ### 4. `InstaVision UI.drawio`
 This file served as the blueprint for creating the `.py` files in the **Main Page**, **Image Generation**, and **Image Editing** folders. It outlines the design and functionality of the InstaVision user interface.
 
-This file can be opened by using the official drawio website which can be accessed [here.](https://www.drawio.com/)
+This file can be opened by using the official drawio website which can be accessed if you [click here.](https://www.drawio.com/)
 
 ---
 

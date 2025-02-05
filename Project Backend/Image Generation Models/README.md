@@ -107,7 +107,6 @@ Below is a list of the 20 image generation models available in this folder:
 
 - Use **Google Colab** for better resource management and free GPU usage.
 - Experiment with different prompts to unlock the full potential of each model.
-- Refer to the individual model README files for advanced settings and usage tips.
 
 ---
 
