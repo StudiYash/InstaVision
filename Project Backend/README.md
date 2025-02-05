@@ -19,6 +19,7 @@ To use the models in this folder, ensure you have the following:
 
 - **Google Colab Environment** or a local machine with **Python 3.10**.
 - **Replicate API Key** for accessing the models.
+- **IMGBB API Key** for uploading images. (Only required in case of Image Editing Models)
 - **Internet Connection** to install dependencies and interact with APIs.
 
 ---
@@ -33,10 +34,13 @@ Follow these steps to set up your environment:
    pip install replicate
    ```
 
-2. **Add Your API Key**  
+2. **Add Your Replicate API Key**  
    Set up your Replicate API Key in the environment variable or in the code for authentication.
 
-3. **Access Models**  
+3. **Add Your IMGBB API Key**  
+   Set up your IMGBB API Key in the environment variable or in the code for authentication. Only required in case of Image Editing Models.
+
+4. **Access Models**  
    Navigate to the specific model (Image Generation Models Folder or Image Editing Models Folder) and follow the instructions in their respective `README.md` files.
 
 ---

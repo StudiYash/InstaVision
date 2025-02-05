@@ -11,7 +11,7 @@ model = client.models.get("black-forest-labs/flux-depth-pro")
 
 # Function to upload an image to ImgBB
 def upload_to_imgbb(image_path):
-    imgbb_api_key = "d343b39ab9444a372e7a1dfffaa0cbf0"  # Get an API key from ImgBB (free, no account required)
+    imgbb_api_key = "ENTER_IMGBB_API_KEY_HERE"  # Get an API key from ImgBB (free, no account required)
     with open(image_path, "rb") as image_file:
         response = requests.post(
             "https://api.imgbb.com/1/upload",

@@ -7,7 +7,7 @@ os.environ["REPLICATE_API_TOKEN"] = "ENTER_YOUR_TOKEN_HERE"
 
 # Function to upload an image to ImgBB
 def upload_to_imgbb(image_path):
-    imgbb_api_key = "d343b39ab9444a372e7a1dfffaa0cbf0"  # Get an API key from ImgBB (free, no account required)
+    imgbb_api_key = "ENTER_IMGBB_API_KEY_HERE"  # Get an API key from ImgBB (free, no account required)
     with open(image_path, "rb") as image_file:
         response = requests.post(
             "https://api.imgbb.com/1/upload",
@@ -21,7 +21,7 @@ def upload_to_imgbb(image_path):
         raise Exception(f"ImgBB upload failed: {response_data}")
 
 # Provide the local path for the image
-local_image_path = "C:/Users/studi/Desktop/people.jpg"
+local_image_path = "C:/Users/Desktop/people.jpg"
 
 try:
     # Upload the image to ImgBB

@@ -20,6 +20,7 @@ To use these models effectively, ensure the following requirements are met:
 
 - **Python 3.10 or later**.
 - **Replicate API Key** for accessing the models.
+- **IMGBB API Key** for uploading images.
 - **Stable Internet Connection** for dependencies and API interaction.
 - **Google Colab Environment** (recommended) or a compatible local setup.
 
@@ -35,17 +36,23 @@ Follow these steps to set up your environment:
    pip install replicate
    ```
 
-2. **Configure Your API Key**  
+2. **Configure Your Replicate API Key**  
    Add your Replicate API Key to your environment or directly in the script:
    ```python
    import replicate
    replicate.Client(api_token="YOUR_API_KEY")
    ```
 
-3. **Select a Model**  
+3. **Configure Your IMGBB API Key**  
+   Add your IMGBB API Key to your environment or directly in the script:
+   ```python
+   imgbb_api_key = "ENTER_IMGBB_API_KEY_HERE"  # Get an API key from ImgBB (free, no account required)
+   ```
+
+4. **Select a Model**  
    Choose a model from the list below based on your editing requirements.
 
-4. **Run the Model**  
+5. **Run the Model**  
    Refer to the documentation of each model (provided in this folder) for specific usage instructions.
 
 ---
