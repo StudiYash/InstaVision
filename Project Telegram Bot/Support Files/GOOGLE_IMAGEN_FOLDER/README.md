@@ -1,7 +1,7 @@
 # **Google Imagen3** (Unavailable)
 
 > **Heads Up**  
-> You won’t find a folder for Google Imagen3 in `InstaVision.py` because our code currently **does not** produce any images using Imagen3.
+> You won’t find a folder for Google Imagen3 in `InstaVision_Telegram_Bot.py` because our code currently **does not** produce any images using Imagen3.
 
 ---
 
