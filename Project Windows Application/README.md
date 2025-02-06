@@ -28,21 +28,21 @@ Once installed, the **InstaVision.exe** application provides three main windows:
 The **Main Page** serves as the entry point to the application, providing easy navigation to image generation and editing features.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Main%20Page.png" alt="Main Page" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Main%20Page.png" alt="Main Page" width="900" height="600">
 </div>
 
 ### 🎨 Image Generation
 The **Image Generation Window** allows users to create AI-generated images with advanced models.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Image%20Generation.png" alt="Image Generation" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Image%20Generation.png" alt="Image Generation" width="900" height="600">
 </div>
 
 ### ✂️ Image Editing
 The **Image Editing Window** provides tools for modifying and enhancing AI-generated images.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Image%20Editing.png" alt="Image Editing" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Image%20Editing.png" alt="Image Editing" width="900" height="600">
 </div>
 
 ---
@@ -55,7 +55,7 @@ Follow the steps below to install InstaVision on your Windows machine. Each step
 Choose your preferred language to proceed with the installation.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%201.png" alt="Step 1: Select Language" width="600" height="300">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%201.png" alt="Step 1: Select Language" width="750" height="300">
 </div>
 
 ---
@@ -64,7 +64,7 @@ Choose your preferred language to proceed with the installation.
 Carefully read and accept the license agreement to continue.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%202.png" alt="Step 2: License Agreement" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%202.png" alt="Step 2: License Agreement" width="750" height="600">
 </div>
 
 ---
@@ -73,7 +73,7 @@ Carefully read and accept the license agreement to continue.
 Review important details about InstaVision before installation.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%203.png" alt="Step 3: Before Install Information" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%203.png" alt="Step 3: Before Install Information" width="750" height="600">
 </div>
 
 ---
@@ -82,7 +82,7 @@ Review important details about InstaVision before installation.
 Customize your installation by selecting additional features or tasks.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%204.png" alt="Step 4: Select Additional Tasks" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%204.png" alt="Step 4: Select Additional Tasks" width="750" height="600">
 </div>
 
 ---
@@ -92,7 +92,7 @@ Verify all your choices and settings before starting the installation.
 
 ![]()
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%205.png" alt="Step 5: Confirm Changes" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%205.png" alt="Step 5: Confirm Changes" width="750" height="600">
 </div>
 
 ---
@@ -101,7 +101,7 @@ Verify all your choices and settings before starting the installation.
 Relax while InstaVision is being installed on your system.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%206.png" alt="Step 6: Installation in Progress" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%206.png" alt="Step 6: Installation in Progress" width="750" height="600">
 </div>
 
 ---
@@ -110,7 +110,7 @@ Relax while InstaVision is being installed on your system.
 Learn about additional features or steps post-installation.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%207.png" alt="Step 7: After Install Information" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%207.png" alt="Step 7: After Install Information" width="750" height="600">
 </div>
 
 ---
@@ -119,7 +119,7 @@ Learn about additional features or steps post-installation.
 Congratulations! The installation is complete. Click **Finish** to start using InstaVision.
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%208.png" alt="Step 8: Finish Screen" width="600" height="600">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%208.png" alt="Step 8: Finish Screen" width="750" height="600">
 </div>
 
 ---
