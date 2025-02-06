@@ -105,7 +105,7 @@ The backend development was an intricate journey, involving months of rigorous r
 
 Our **Mark Model Index Document** provides a comprehensive overview of this journey, showcasing each model’s evolution, from early concepts to the final optimized versions. Dive into the document to see how each model was crafted, tested, and fine-tuned to tackle the challenges of multilingual, multimodal hate speech detection.
 
-[![Mark Model Index Document](https://img.shields.io/badge/View-Mark%20Model%20Index%20Document-blue?style=for-the-badge&logo=Adobe)]()
+[![Mark Model Index Document](https://img.shields.io/badge/View-Mark%20Model%20Index%20Document-blue?style=for-the-badge&logo=Github)]()
 
 ---
 
@@ -246,6 +246,7 @@ InstaVision has been successfully utilized in various real-world events, showcas
 The **Project Test Inputs** folder includes curated prompts for evaluating InstaVision across all models. Prompts are designed for versatility and optimized for showcasing API strengths.  
 
 Explore test prompts and examples in the Project Test Inputs Folder.
+
 [![Project Test Inputs](https://img.shields.io/badge/VISIT-Project%20Test%20Inputs-magenta?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Test%20Inputs)
 
 ---
@@ -287,9 +288,3 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 - **Contributors**: See the list of contributors [here](https://github.com/StudiYash/InstaVision/blob/main/CONTRIBUTORS.md).
 
 Made with ❤️ by [Yash Shukla](https://www.linkedin.com/in/yash-shukla-2024aiguy/)
-
----
-
-## Contact 📧
-
-For support or inquiries, reach out at [InstaVision Support](mailto:instavision001@gmail.com).
