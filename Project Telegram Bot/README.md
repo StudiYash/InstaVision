@@ -12,7 +12,7 @@
 - **Group Image Sharing**: Automatically shares generated images in a specified Telegram group with detailed user information.
 - **Banned Words Detection**: Identifies and restricts the use of inappropriate words in prompts to maintain system integrity.
 - **Banned User Management**: Implements temporary and permanent bans for users violating policies, managed via Redis.
-- **Translation to English**: Automatically detects the input language and translates non-English prompts to English for processing. Supports in total 80 different languages from various countries. For a detailed list of languages [click here.](https://github.com/StudiYash/InstaVision/blob/main/InstaVision_Supported_Languages.pdf)
+- **Translation to English**: Automatically detects the input language and translates non-English prompts to English for processing. Supports in total 80 different languages from various countries. For a detailed list of languages [click here.](https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/InstaVision_Supported_Languages.pdf)
 - **Watermarking**: Adds a customizable watermark to every generated image to preserve brand identity and discourage misuse. Also allows the use of custom fonts for watermarking, with a fallback to default fonts if unavailable.
 - **Error Handling**: Includes robust error handling with email notifications for critical issues like API failures or image storage errors.
 - **Feedback System**: Allows users to provide feedback directly through the bot, with automated email notifications sent to administrators.

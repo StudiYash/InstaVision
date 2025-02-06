@@ -1,76 +1,199 @@
 # ![InstaVision](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Logo.png)
 
-## Project Introduction 🛡️ 
+## Project Introduction 🛡️
 
 ### Abstract 
-**InstaVision** is a powerful AI-driven Telegram Bot designed to transform your text descriptions into stunning, high-quality images using various Image Generation APIs. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
-
-### Features
-
-- **High-Quality Image Generation**: Generate unlimited number of  high-quality images using various Image Generation APIs.
-- **Simultaneous Request Handling**: Capable of processing up to 50 simultaneous requests, ensuring fast and efficient image creation.
-- **Rate Limiting**: Enforces user limits to prevent abuse, with a customizable rate-limiting system. The rate-limiting system supports unlimited users, privileged users (50 images/day), and default users (5 images/day).
-- **Group Image Sharing**: Automatically shares generated images in a specified Telegram group with detailed user information.
-- **Banned Words Detection**: Identifies and restricts the use of inappropriate words in prompts to maintain system integrity.
-- **Banned User Management**: Implements temporary and permanent bans for users violating policies, managed via Redis.
-- **Translation to English**: Automatically detects the input language and translates non-English prompts to English for processing. Supports in total 80 different languages from various countries.
-- **Watermarking**: Adds a customizable watermark to every generated image to preserve brand identity and discourage misuse. Also allows the use of custom fonts for watermarking, with a fallback to default fonts if unavailable.
-- **Error Handling**: Includes robust error handling with email notifications for critical issues like API failures or image storage errors.
-- **Feedback System**: Allows users to provide feedback directly through the bot, with automated email notifications sent to administrators.
-- **Excel Metrics Tracking**: Tracks user activity, usage statistics, and model-specific metrics in an organized Excel file. Logs all bot activities, including user interactions and system errors, for monitoring and debugging.
-- **User-Friendly Commands**: Offers intuitive commands for easy interaction, including `/start`, `/help`, `/feedback`, and model-specific commands.
-- **Local Storage**: Saves generated and watermarked images in structured local folders for easy access and organization.
-
-**Index Terms:** AI-driven Telegram Bot, High-Quality Image Generation, Image Generation APIs, Redis Database,  Watermarking, Rate Limiting, Simultaneous Request Handling, Custom Error Handling, User Feedback System, Banned Words Detection, Translation to English, Excel Metrics Tracking, Async Request Queue, Real-Time Logging.
+**InstaVision** is a powerful AI-driven Image Generation and Image Editing project designed to transform your text descriptions into stunning, high-quality images using various Image Generation APIs. Perfect for creators, students, and anyone with a vivid imagination, InstaVision makes it easy to bring your ideas to life with just a few words.
 
 ### Project Timeline 
 
-- **Start Date**: 22nd August 2024
-- **End Date**: Ongoing
-- **Total Time Required**: 5 months and 16 days (ongoing)
+- **Start Date**: 22nd August 2024  
+- **End Date**: Ongoing  
+- **Total Time Required**: 5 months and 16 days (ongoing)  
 
-### My Introduction 
+### My Introduction  
 
 | Name                   | GitHub Profile | LinkedIn Profile |
-|--------------------------------|----------------|------------------|
-| **Yash Suhas Shukla**          | [GitHub](https://github.com/StudiYash) | [LinkedIn](https://www.linkedin.com/in/yash-shukla-2024aiguy/) |
+|------------------------|----------------|------------------|
+| **Yash Suhas Shukla**  | [GitHub](https://github.com/StudiYash) | [LinkedIn](https://www.linkedin.com/in/yash-shukla-2024aiguy/) |
 
 <div align="center">
-  <img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/About%20Me.png" alt="Introduction Image" width="800" height="450">
+  <img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/About%20Me.gif" alt="Introduction GIF" width="800" height="450">
 </div>
 
 ---
 
-## Project Setup 🎥 
+## Methodology ✨
 
-### Watch the Setup Video
+<p align="center">
+<img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/System%20Architecture.png" style="border: 2px solid black; width: 600px; height: 500px;" alt="Project Methodology">
+</p>
 
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=EOWHH2HvRpo" target="_blank">
-  <img src="https://img.youtube.com/vi/EOWHH2HvRpo/0.jpg" alt="InstaVision Setup Video" width="600" height="350">
-  </a>
-</div>
+The **Methodology of InstaVision** is designed to efficiently process text-based inputs to generate visually stunning, AI-powered images. Below is an in-depth breakdown of each component and its functionality:
 
-Click the image above to watch the setup video for InstaVision!
+### 1. **Text Input**
+   - **Source**: Inputs are received through multiple platforms, including:
+     - **Telegram Bot**: Users can interact with the bot by sending text prompts directly via Telegram.
+     - **Windows Application**: Desktop users can input their prompts through the standalone InstaVision application.
+   - **Purpose**: This serves as the starting point of the entire workflow, where users provide their creative ideas or descriptions for image generation.
 
+### 2. **Prompt Preprocessing**
+   This stage ensures that the text input is validated and optimized for the image generation process. It includes two key components:
+
+   #### a) **Banned Words Check**
+   - **Objective**: Ensures that inputs adhere to ethical and usage guidelines by filtering out inappropriate or offensive language.
+   - **Process**:
+     - Scans the text prompt for words or phrases that are flagged as inappropriate.
+     - Prompts the user to revise their input if any banned words are detected.
+   - **Impact**: Maintains the integrity and professionalism of the generated content.
+
+   #### b) **Rate Limiting via Redis** (Only for Telegram Bot)
+   - **Objective**: Prevents system overload and abuse by enforcing user-specific rate limits.
+   - **Features**:
+     - Default users can generate up to **5 images per day**.
+     - Privileged users can generate up to **50 images per day**.
+     - Admin users have no restrictions.
+   - **Technology Used**: 
+     - Redis Cloud Database for maintaining real-time user quota information.
+     - Reset logic to refresh limits every 24 hours.
+   - **Impact**: Ensures fair usage and system scalability for multiple users simultaneously.
+
+### 3. **Image Processing**
+   This stage leverages advanced AI models to generate and enhance images based on the processed input. It comprises two critical submodules:
+
+   #### a) **Image Generation**
+   - **Objective**: Transforms text-based prompts into visually stunning images using state-of-the-art AI models.
+   - **Supported Models**:
+     - **Replicate APIs** for SDXL Lightning and Flux Schnell.
+     - **Google Imagen API** for generating highly detailed and realistic images.
+     - **OpenAI DALL-E 3 API** for a creative and versatile image generation approach.
+   - **Process**:
+     - Receives processed text input and sends it to the selected image generation API.
+     - Produces a high-quality image as output.
+   - **Impact**: Offers users diverse styles and capabilities for image generation, catering to various creative needs.
+
+   #### b) **Watermarking**
+   - **Objective**: Adds a customizable watermark to the generated image for branding and intellectual property protection.
+   - **Features**:
+     - Supports both default and custom watermark text.
+     - Uses fonts specified by the user, with fallbacks to default fonts if unavailable.
+     - Ensures that the watermark is visually appealing and non-intrusive.
+   - **Impact**: Protects generated images from unauthorized use and establishes a unique identity for InstaVision.
+
+### 4. **Image Output**
+   - **Objective**: Delivers the final, watermarked image to the user.
+   - **Delivery Channels**:
+     - **Telegram Bot**: Sends the image to the user and/or a designated group.
+     - **Windows Application**: Displays the image directly within the application and allows users to save it locally.
+   - **Impact**: Ensures a seamless user experience by making the final output readily accessible.
+
+### Key Advantages of the Methodology:
+- **Scalability**: Efficiently handles simultaneous requests from multiple users through robust backend integration.
+- **Ethical Compliance**: Ensures content appropriateness through banned words detection.
+- **Flexibility**: Supports a variety of input methods and image generation models.
+- **User Protection**: Implements rate limiting and watermarking to ensure fair use and intellectual property security.
+
+This methodology highlights the seamless integration of user-friendly interfaces, ethical controls, and advanced AI technologies to deliver a reliable and creative experience with InstaVision.
 
 ---
-## Image Generation APIs 📦 
 
-- **DALL·E 3 API by OpenAI**: For more information, visit the [Official DALL·E 3 Documentation](https://help.openai.com/en/articles/8555480-dall-e-3-api).
-- **Flux Schnell API by black-forest-labs**: For more information, visit the [Official Flux Schnell documentation](https://replicate.com/black-forest-labs/flux-schnell).
-- **Sdxl Lightning 4step API by bytedance**: For more information, visit the [Official Sdxl Lightning 4step documentation](https://replicate.com/bytedance/sdxl-lightning-4step/api).
-- **Imagen3 API by Google**: For more information, visit the [Official Imagen3 Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview).
+## Backend Preparation 🔧
 
-## Comparing API Outputs 📑 
+### Mark Models Index
 
-| S.No | Description  | DALL·E 3                       | Flux Schnell                  | SDXL Lightning          | Imagen3                       |
-|------|--------------|-------------------------------|-------------------------------|-------------------------------|-------------------------------|
-| 01   | Ancient Forest Temple  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/03.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/03.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/03.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/03.png) |
-| 02   | Cyberpunk Samurai Duel  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/04.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/04.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/04.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/04.png) |
-| 03   | Alien Planet with Floating Islands  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/05.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/05.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/05.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/05.png) |
-| 04   | Deserted Amusement Park in the Future  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/07.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/07.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/07.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/07.png) |
-| 05   | Mythical Phoenix Rising from Ashes  | ![Image1](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples/08.jpg) | ![Image2](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples/08.jpg) | ![Image3](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples/08.jpg) | ![Image4](https://github.com/StudiYash/InstaVision/blob/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples/08.png) |
+The backend development was an intricate journey, involving months of rigorous research, experimentation, and iterative coding. Each phase contributed to refining the system’s ability to generate and edit images over various prompts of input and in various languages. 
+
+Our **Mark Model Index Document** provides a comprehensive overview of this journey, showcasing each model’s evolution, from early concepts to the final optimized versions. Dive into the document to see how each model was crafted, tested, and fine-tuned to tackle the challenges of multilingual, multimodal hate speech detection.
+
+[![Mark Model Index Document](https://img.shields.io/badge/View-Mark%20Model%20Index%20Document-blue?style=for-the-badge&logo=Adobe)]()
+
+---
+
+## Project Backend 🖥️
+
+The **Project Backend** contains resources for both generating and editing images, supporting state-of-the-art models to deliver exceptional results.
+
+### Image Generation Models:
+
+A collection of **20 advanced models** for creating high-quality images:
+1. `ai-forever_kandinsky-2.2`
+2. `black-forest-labs_flux-1.1-pro-ultra`
+3. `bytedance_sdxl-lightning-4step`
+4. `lucataco_dreamshaper-xl-turbo`
+... *(see the full list in the [Backend README](https://github.com/StudiYash/InstaVision/tree/main/Project%20Backend/Image%20Generation%20Models))*
+
+### Image Editing Models:
+
+A set of **8 powerful tools** for enhancing images, such as object removal, de-oldifying, and more:
+1. `adirik_t2i-adapter-sdxl-openpose`
+2. `arielreplicate_deoldify-image`
+3. `black-forest-labs_flux-canny-pro`
+... *(complete list in the [Backend README](https://github.com/StudiYash/InstaVision/blob/main/Project%20Backend/Image%20Editing%20Models))*
+
+For detailed instructions, visit the
+
+[![Explore Project Backend](https://img.shields.io/badge/View-Project%20Backend-white?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Backend)
+
+---
+
+## Project Frontend 🎨
+
+The **Project Frontend** focuses on delivering a user-friendly and aesthetically pleasing interface for InstaVision.  
+
+### Main Page Features:
+- 🌟 Maximized window view.
+- 🎨 Dark-themed interface with dynamic logo resizing.
+- ✨ Hover-responsive buttons.
+
+### Image Generation UI:
+- 🖥 Fully responsive design.
+- 🎨 Dark theme with real-time image preview.
+- 📂 Save generated images with a single click.
+
+### Image Editing UI:
+- 🖼 Real-time preview of uploaded and edited images.
+- 🛠 AI-powered tools for object removal, enhancements, and more.
+
+For detailed instructions, visit the 
+
+[![Explore Project Frontend](https://img.shields.io/badge/View-Project%20Frontend-pink?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Frontend)
+
+---
+
+## Project Windows Application ✨
+
+### Installer Steps:
+1. **Language Selection**: Choose preferred language.
+2. **License Agreement**: Accept terms.
+3. **Installation Progress**: Relax while the app installs.
+
+### Main Features:
+- **Main Page**: Central hub for navigation.
+- **Image Generation**: Advanced UI for AI-powered image creation.
+- **Image Editing**: Tools for refining and enhancing images.
+
+**📥 Download InstaVision**
+> Click the button below to download the latest version of InstaVision.
+
+[![InstaVision Windows Application](https://img.shields.io/badge/View-InstaVision%20Windows%20Application-gold?style=for-the-badge&logo=GitHub)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/InstaVision.exe)
+
+For more information about Project Windows Application, visit the 
+
+[![Project Windows Application](https://img.shields.io/badge/View-Project%20Windows%20Application-indigo?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Windows%20Application)
+
+---
+
+## Project Telegram Bot 🤖
+
+### Key Features:
+- **Simultaneous Request Handling**: Handles up to 50 requests simultaneously.
+- **Rate Limiting**: Enforces user limits (default: 5/day; privileged: 50/day).
+- **Translation**: Supports input in **80+ languages** ([Language List](https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/InstaVision_Supported_Languages.pdf)).
+- **Watermarking**: Customizable watermark with fallback fonts.
+
+For more details, refer to
+
+[![Explore Telegram Bots](https://img.shields.io/badge/View-Telegram%20Bot%20Code-teal?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot)
 
 ---
 
@@ -98,6 +221,35 @@ Click the image above to watch the setup video for InstaVision!
 
 ---
 
+## Real-Life Usage 🌍 
+
+InstaVision has been successfully utilized in various real-world events, showcasing its versatility and impact. Here are some notable instances:
+
+### 01) Alampata 2024 - VPKBIET's Ganeshotsav Celebration
+
+- **Event:** Alampata 2024, an annual Ganeshotsav festival at VPKBIET
+- **Date:** August 7, 2024 - August 17, 2024
+- **Theme:** Technology and AI Integration
+- **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
+- **Images Generated:** **702** Images.
+  
+  [![Alampata 2024 Images](https://img.shields.io/badge/VISIT-Alampata%202024%20Images-purple?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/Alampata%202024)
+
+- **Alampata 2024 Report:** 
+  
+  [![Alampata 2024 Report](https://img.shields.io/badge/VISIT-Alampata%202024%20Report-tan?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
+
+---
+
+## Project Testing Prompts 📝
+
+The **Project Test Inputs** folder includes curated prompts for evaluating InstaVision across all models. Prompts are designed for versatility and optimized for showcasing API strengths.  
+
+Explore test prompts and examples in the Project Test Inputs Folder.
+[![Project Test Inputs](https://img.shields.io/badge/VISIT-Project%20Test%20Inputs-magenta?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Test%20Inputs)
+
+---
+
 ## Project Copyright ©️
 
 Securing copyright for this project marked an important milestone in safeguarding my innovation and intellectual property. Copyrighting my project not only protects the unique aspects of my Image Generation system but also reinforces my commitment to creating responsible AI products. By copyrighting this idea, I have ensured that the methods, models, and technological advances developed through this project remain attributed to me.
@@ -112,26 +264,6 @@ Securing copyright for this project marked an important milestone in safeguardin
 > *Establishing copyright protection is a proactive step towards fostering innovation, ensuring recognition, and laying a foundation for future advancements in image generation.*
 
 ---
-
-## Real-Life Usage 🌍 
-
-InstaVision has been successfully utilized in various real-world events, showcasing its versatility and impact. Here are some notable instances:
-
-### 01) Alampata 2024 - VPKBIET's Ganeshotsav Celebration
-
-- **Event:** Alampata 2024, an annual Ganeshotsav festival at VPKBIET
-- **Date:** August 7, 2024 - August 17, 2024
-- **Theme:** Technology and AI Integration
-- **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
-- **Images Generated:** **702** Images.
-  
-  [![Alampata 2024 Images](https://img.shields.io/badge/VISIT-Alampata%202024%20Images-gold?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/Alampata%202024)
-
-- **Alampata 2024 Report:** 
-  
-  [![Alampata 2024 Report](https://img.shields.io/badge/VISIT-Alampata%202024%20Report-indigo?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
-
---- 
 
 ## License 📄 
 
@@ -155,3 +287,9 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 - **Contributors**: See the list of contributors [here](https://github.com/StudiYash/InstaVision/blob/main/CONTRIBUTORS.md).
 
 Made with ❤️ by [Yash Shukla](https://www.linkedin.com/in/yash-shukla-2024aiguy/)
+
+---
+
+## Contact 📧
+
+For support or inquiries, reach out at [InstaVision Support](mailto:instavision001@gmail.com).
