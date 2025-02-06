@@ -206,7 +206,7 @@ For more details, refer to
     The project secured a **Consolation prize of ₹1000**. Below are the Consolation certificate awarded to me for presenting InstaVision at Innovation Fest 2024.
 
     <p align="center">
-    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/Vishwakarma%20University%20Innovation%20Fest%202024/Yash.jpg" alt="Innovation Fest 2024 Certificate" width="60%" />
+    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/Vishwakarma%20University%20Innovation%20Fest%202024/Yash.jpg" alt="Innovation Fest 2024 Certificate" width="80%" />
     </p>
 
 2. **Techmanthan 2025 at JSPM College Pune**
@@ -216,7 +216,7 @@ For more details, refer to
     Below is the participation certificate awarded to me for presenting InstaVision at Techmanthan 2025.
 
     <p align="center">
-    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/JSPM%20TechManthan%202025/Yash.jpg" alt="Techmanthan 2025 Certificate" width="60%" />
+    <img src="https://github.com/StudiYash/InstaVision/blob/main/Certificates/Project%20Representation/JSPM%20TechManthan%202025/Yash.jpg" alt="Techmanthan 2025 Certificate" width="80%" />
     </p>
 
 ---
