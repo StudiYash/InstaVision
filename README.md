@@ -247,7 +247,7 @@ The **Project Test Inputs** folder includes curated prompts for evaluating Insta
 
 Explore test prompts and examples in the Project Test Inputs Folder.
 
-[![Project Test Inputs](https://img.shields.io/badge/VISIT-Project%20Test%20Inputs-magenta?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Test%20Inputs)
+[![Project Test Inputs](https://img.shields.io/badge/VISIT-Project%20Test%20Inputs-olive?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Test%20Inputs)
 
 ---
 
