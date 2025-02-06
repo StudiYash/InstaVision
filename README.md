@@ -26,7 +26,7 @@
 ## Methodology ✨
 
 <p align="center">
-<img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/System%20Methodology.png" style="border: 2px solid black; width: 600px; height: 500px;" alt="Project Methodology">
+<img src="https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/System%20Methodology.png" style="border: 2px solid black; width: 600px; height: 400px;" alt="Project Methodology">
 </p>
 
 The **Methodology of InstaVision** is designed to efficiently process text-based inputs to generate visually stunning, AI-powered images. Below is an in-depth breakdown of each component and its functionality:
