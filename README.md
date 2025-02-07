@@ -105,7 +105,7 @@ The backend development was an intricate journey, involving months of rigorous r
 
 Our **Mark Model Index Document** provides a comprehensive overview of this journey, showcasing each model’s evolution, from early concepts to the final optimized versions. Dive into the document to see how each model was crafted, tested, and fine-tuned to tackle the challenges of multilingual, multimodal hate speech detection.
 
-[![Mark Model Index Document](https://img.shields.io/badge/View-Mark%20Model%20Index%20Document-blue?style=for-the-badge&logo=Github)]()
+[![Mark Model Index Document](https://img.shields.io/badge/View-Mark%20Model%20Index%20Document-blue?style=for-the-badge&logo=Github)](https://github.com/StudiYash/InstaVision/blob/main/Support%20Files/Mark%20Model%20Index.pdf)
 
 ---
 
@@ -175,7 +175,7 @@ For detailed instructions, visit the
 **📥 Download InstaVision**
 > Click the button below to download the latest version of InstaVision.
 
-[![InstaVision Windows Application](https://img.shields.io/badge/View-InstaVision%20Windows%20Application-gold?style=for-the-badge&logo=GitHub)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/InstaVision.exe)
+[![InstaVision Windows Application](https://img.shields.io/badge/View-Download%20InstaVision%20Windows%20Application-gold?style=for-the-badge&logo=GitHub)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/InstaVision.exe)
 
 For more information about Project Windows Application, visit the 
 
