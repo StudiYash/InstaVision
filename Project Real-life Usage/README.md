@@ -8,7 +8,7 @@ This section showcases how **InstaVision** has been applied in real-life events 
 - **Date:** August 7, 2024 - August 17, 2024
 - **Theme:** Technology and AI Integration
 - **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
-- **Images Generated:** **642** Images
+- **Images Generated:** **699** Images
 
     [![📄 Alampata 2024 Report](https://img.shields.io/badge/View-Alampata%202024%20Report-blue?style=for-the-badge&logo=Adobe)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
 

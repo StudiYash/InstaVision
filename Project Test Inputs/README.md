@@ -18,13 +18,13 @@ This folder includes **10 `text_prompts.txt` files**, each containing a unique t
 
 The same test prompts have been used to generate **example images**, which are stored in the respective example folders of the individual model directories:
 
-[![Dall E3 Examples](https://img.shields.io/badge/VISIT-Dall%20E3%20Examples-white?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples)
+[![Dall E3 Examples](https://img.shields.io/badge/VISIT-Dall%20E3%20Examples-white?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot/Telegram%20Bot%20Individual%20Models/InstaVision%20Bot%20(Dall%20E3%20API)/dalle3_examples)
 
-[![Flux Schnell Examples](https://img.shields.io/badge/VISIT-Flux%20Schnell%20Examples-magenta?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples)
+[![Flux Schnell Examples](https://img.shields.io/badge/VISIT-Flux%20Schnell%20Examples-magenta?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot/Telegram%20Bot%20Individual%20Models/InstaVision%20Bot%20(Flux%20Schnell%20API)/flux_schnell_examples)
 
-[![SDXL Lightning 4Step Examples](https://img.shields.io/badge/VISIT-SDXL%20LIGHTNING%204STEP%20EXAMPLES-indigo?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples)
+[![SDXL Lightning 4Step Examples](https://img.shields.io/badge/VISIT-SDXL%20LIGHTNING%204STEP%20EXAMPLES-indigo?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot/Telegram%20Bot%20Individual%20Models/InstaVision%20Bot%20(Sdxl%20Lightning%204Step%20API)/sdxl_lightning_4step_examples)
 
-[![Google Imagen3 Examples](https://img.shields.io/badge/VISIT-Google%20Imagen3%20Examples-gold?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples)
+[![Google Imagen3 Examples](https://img.shields.io/badge/VISIT-Google%20Imagen3%20Examples-gold?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot/Telegram%20Bot%20Individual%20Models/InstaVision%20Bot%20(Google%20Imagen3%20API)/google_imagen3_examples)
 
 Feel free to explore these folders to view the results generated using the prompts in this folder.
 

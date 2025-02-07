@@ -9,7 +9,7 @@ The InstaVision installer is constructed using resources from the **Project Back
 **📥 Download InstaVision**
 > Click the button below to download the latest version of InstaVision.
 
-[![InstaVision Windows Application](https://img.shields.io/badge/View-InstaVision%20Windows%20Application-gold?style=for-the-badge&logo=GitHub)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/InstaVision.exe)
+[![InstaVision Windows Application](https://img.shields.io/badge/View-Download%20InstaVision%20Windows%20Application-gold?style=for-the-badge&logo=GitHub)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/InstaVision.exe)
 
 🔹 **How to Download:**
 1. Click the button above ☝️

@@ -21,7 +21,7 @@ def upload_to_imgbb(image_path):
         raise Exception(f"ImgBB upload failed: {response_data}")
 
 # Provide the local path for the input image
-local_image_path = "C:/Users/studi/Desktop/goggle.jpg"
+local_image_path = "C:/Users/Desktop/goggle.jpg"
 
 try:
     # Upload the input image to ImgBB

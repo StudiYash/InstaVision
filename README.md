@@ -233,7 +233,7 @@ InstaVision has been successfully utilized in various real-world events, showcas
 - **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
 - **Images Generated:** **702** Images.
   
-  [![Alampata 2024 Images](https://img.shields.io/badge/VISIT-Alampata%202024%20Images-purple?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/Alampata%202024)
+  [![Alampata 2024 Images](https://img.shields.io/badge/VISIT-Alampata%202024%20Images-purple?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/Alampata%202024/Images)
 
 - **Alampata 2024 Report:** 
   
