@@ -239,6 +239,21 @@ InstaVision has been successfully utilized in various real-world events, showcas
   
   [![Alampata 2024 Report](https://img.shields.io/badge/VISIT-Alampata%202024%20Report-tan?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/Alampata%202024/Alampata_Ganeshotsav_2024_Report.pdf)
 
+
+### 02) VoltzFest 2025 - VPKBIET's AI Art Gallery
+
+- **Event:** VoltzFest 2025, a platform for artists for uplifting their skills using AI
+- **Date:** February 10, 2025 - February 11, 2025
+- **Theme:** AI Art Generation
+- **InstaVision's Role:** Used for **Telegram Bot Image Generative Competition**
+- **Images Generated:** **264** Images.
+  
+  [![VoltzFest 2025 Images](https://img.shields.io/badge/VISIT-VoltzFest%202025%20Images-purple?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Real-life%20Usage/VoltzFest%202025/Images)
+
+- **VoltzFest 2025 Report:** 
+  
+  [![VoltzFest 2025 Report](https://img.shields.io/badge/VISIT-VoltzFest%202025%20Report-tan?style=for-the-badge&logo=Files)](https://github.com/StudiYash/InstaVision/blob/main/Project%20Real-life%20Usage/VoltzFest%202025/Voltzfest_AI_Art_Gallery_2025_Report.pdf)
+
 ---
 
 ## Project Testing Prompts 📝
