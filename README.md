@@ -8,8 +8,8 @@
 ### Project Timeline 
 
 - **Start Date**: 22nd August 2024  
-- **End Date**: Ongoing  
-- **Total Time Required**: 5 months and 16 days (ongoing)  
+- **End Date**: 14th February 2025 
+- **Total Time Required**: 5 months and 24 days 
 
 ### My Introduction  
 
