@@ -193,7 +193,7 @@ For detailed instructions, visit the
 
 For more information about Project Windows Application, visit the 
 
-<p align="left">
+<p align="center">
 
   <!-- ⭐ Project Windows Application Code-->
   <a href="https://github.com/StudiYash/InstaVision/tree/main/Project%20Windows%20Application">
@@ -202,7 +202,7 @@ For more information about Project Windows Application, visit the
 
   <!-- ▶️ Project Windows Application Setup Video -->
   <a href="https://drive.google.com/file/d/1TJRBYDH2MOK6q8VmP2o2Ouu9TNKL7r5J/view?usp=sharing">
-    <img src="https://img.shields.io/badge/Watch-Project%20Windows%20Application%20Setup-red?style=for-the-badge&logo=google drive" alt="Project Windows Application">
+    <img src="https://img.shields.io/badge/Watch-Project%20Windows%20Application%20Setup-red?style=for-the-badge&logo=google-drive" alt="Project Windows Application">
   </a>
 
 </p>
@@ -219,7 +219,7 @@ For more information about Project Windows Application, visit the
 
 For more details, refer to
 
-<p align="left">
+<p align="center">
 
   <!-- ⭐ Telegram Bot Code -->
   <a href="https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot">
@@ -228,7 +228,7 @@ For more details, refer to
 
   <!-- ▶️ Telegram Bot Setup Video -->
   <a href="https://drive.google.com/file/d/1UX1-N35ogm18IVjCMZFyHPCjY0cgMRzz/view?usp=sharing">
-    <img src="https://img.shields.io/badge/Watch-Telegram%20Bot%20Setup-red?style=for-the-badge&logo=google drive" alt="Telegram Bot Setup">
+    <img src="https://img.shields.io/badge/Watch-Telegram%20Bot%20Setup-red?style=for-the-badge&logo=google-drive" alt="Telegram Bot Setup">
   </a>
 
 </p>
