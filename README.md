@@ -1,5 +1,19 @@
 # ![InstaVision](https://github.com/StudiYash/InstaVision/blob/main/InstaVision%20Logo.png)
 
+<p align="center">
+
+  <!-- ⭐ GitHub Stars -->
+  <a href="https://github.com/StudiYash/InstaVision/stargazers">
+    <img src="https://img.shields.io/github/stars/StudiYash/InstaVision?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars">
+  </a>
+
+  <!-- ▶️ Official YouTube Video -->
+  <a href="https://youtu.be/HhnD14Yw-Y0">
+    <img src="https://img.shields.io/badge/Watch-Project%20Walkthrough-red?style=for-the-badge&logo=youtube" alt="Project Walkthrough">
+  </a>
+
+</p>
+
 ## Project Introduction 🛡️
 
 ### Abstract 
@@ -179,7 +193,19 @@ For detailed instructions, visit the
 
 For more information about Project Windows Application, visit the 
 
-[![Project Windows Application](https://img.shields.io/badge/View-Project%20Windows%20Application-indigo?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Windows%20Application)
+<p align="left">
+
+  <!-- ⭐ Project Windows Application Code-->
+  <a href="https://github.com/StudiYash/InstaVision/tree/main/Project%20Windows%20Application">
+    <img src="https://img.shields.io/badge/View-Project%20Windows%20Application-indigo?style=for-the-badge&logo=github">
+  </a>
+
+  <!-- ▶️ Project Windows Application Setup Video -->
+  <a href="https://drive.google.com/file/d/1TJRBYDH2MOK6q8VmP2o2Ouu9TNKL7r5J/view?usp=sharing">
+    <img src="https://img.shields.io/badge/Watch-Project%20Windows%20Application%20Setup-red?style=for-the-badge&logo=google drive" alt="Project Windows Application">
+  </a>
+
+</p>
 
 ---
 
@@ -193,7 +219,19 @@ For more information about Project Windows Application, visit the
 
 For more details, refer to
 
-[![Explore Telegram Bots](https://img.shields.io/badge/View-Telegram%20Bot%20Code-teal?style=for-the-badge&logo=github)](https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot)
+<p align="left">
+
+  <!-- ⭐ Telegram Bot Code -->
+  <a href="https://github.com/StudiYash/InstaVision/tree/main/Project%20Telegram%20Bot">
+    <img src="https://img.shields.io/badge/View-Telegram%20Bot%20Code-teal?style=for-the-badge&logo=github">
+  </a>
+
+  <!-- ▶️ Telegram Bot Setup Video -->
+  <a href="https://drive.google.com/file/d/1UX1-N35ogm18IVjCMZFyHPCjY0cgMRzz/view?usp=sharing">
+    <img src="https://img.shields.io/badge/Watch-Telegram%20Bot%20Setup-red?style=for-the-badge&logo=google drive" alt="Telegram Bot Setup">
+  </a>
+
+</p>
 
 ---
 
