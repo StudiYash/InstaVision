@@ -50,8 +50,11 @@ The **Image Editing Window** provides tools for modifying and enhancing AI-gener
 ## 3. Installation Guide 🛠️
 
 <!-- ▶️ Project Windows Application Setup Video -->
+<p align="center">
   <a href="https://drive.google.com/file/d/1TJRBYDH2MOK6q8VmP2o2Ouu9TNKL7r5J/view?usp=sharing">
     <img src="https://img.shields.io/badge/Watch-Project%20Windows%20Application%20Setup-red?style=for-the-badge&logo=google-drive" alt="Project Windows Application">
+  </a>
+</p>
 
 Follow the steps below to install InstaVision on your Windows machine. Each step includes a visual guide to make the process simple and straightforward.
 
@@ -94,7 +97,6 @@ Customize your installation by selecting additional features or tasks.
 ### Step 5: Confirm Changes ✅
 Verify all your choices and settings before starting the installation.
 
-![]()
 <div align="center">
   <img src="https://github.com/StudiYash/InstaVision/blob/main/Project%20Windows%20Application/Installer%20Step%205.png" alt="Step 5: Confirm Changes" width="750" height="600">
 </div>

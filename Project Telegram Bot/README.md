@@ -50,8 +50,11 @@ Before setting up the bot, ensure you have the following:
 ## 5. Telegram Bot Setup 🎥 
 
 <!-- ▶️ Telegram Bot Setup Video -->
+<p align="center">
   <a href="https://drive.google.com/file/d/1UX1-N35ogm18IVjCMZFyHPCjY0cgMRzz/view?usp=sharing">
     <img src="https://img.shields.io/badge/Watch-Telegram%20Bot%20Setup-red?style=for-the-badge&logo=google-drive" alt="Telegram Bot Setup">
+  </a>
+</p>
 
 Below is the complete list of environment variables and file paths you need to configure for the bot to run:
 
