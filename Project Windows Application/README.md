@@ -150,7 +150,7 @@ These components were carefully integrated to ensure a seamless and efficient ap
 
 After installation, double-click the **InstaVision.exe** file to launch the application. Start exploring the possibilities of AI-driven image processing today! 🌈
 
-For support or questions, feel free to contact us at [📧 support@instavision.com](mailto:instavision001@gmail.com).
+For support or questions, feel free to contact us at [📧 studiyash@gmail.com](mailto:studiyash@gmail.com).
 
 ---
 
