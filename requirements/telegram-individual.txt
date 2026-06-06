@@ -1,0 +1,14 @@
+# Individual Telegram model bot dependencies.
+# This file is the union of the existing individual bot requirement files.
+
+python-telegram-bot==20.0
+nest_asyncio==1.5.1
+requests==2.31.0
+redis==4.6.0
+
+# Model/API-specific packages used by one or more individual bots.
+replicate
+Pillow
+openai==0.28.0
+google-cloud-aiplatform
+python-dotenv

@@ -1,0 +1,7 @@
+# InstaVision all-components dependency entry point.
+#
+# This installs packages for experimenting with all Python-based project
+# components. For smaller installs, use the component-specific files in
+# the requirements/ folder.
+
+-r requirements/all-components.txt

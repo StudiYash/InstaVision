@@ -1,17 +1,18 @@
-# Updating the Folder Path for **FLUX_SCHNELL_FOLDER** in *InstaVision_Telegram_Bot.py*
+# Configuring the Folder Path for **FLUX_SCHNELL_FOLDER**
 
-Hello, brilliant developer! If you’ve just created (or moved) the **FLUX_SCHNELL_FOLDER** folder and need to ensure our main `InstaVision_Telegram_Bot.py` file knows where to find it, follow these friendly instructions.
-
----
-
-## 1. Locate the `InstaVision_Telegram_Bot.py` File
-- Head over to your project directory.
-- Open up the **`InstaVision_Telegram_Bot.py`** file in your favorite code editor (VSCode, PyCharm, or maybe good ol’ Notepad++).
+Hello, brilliant developer! The main `InstaVision_Telegram_Bot.py` file now reads the Flux Schnell output folder from `.env` when available and otherwise uses a repo-local runtime folder.
 
 ---
 
-## 2. Find the Folder Path Variable
-Somewhere in `InstaVision_Telegram_Bot.py`, you'll find a line or variable that specifies the folder path for FLUX SCHNELL. It might look like:
+## 1. Configure `.env`
+- Copy `.env.example` to `.env` in the repository root.
+- Set `FLUX_SCHNELL_OUTPUT_FOLDER` if you want a custom folder.
+- Leave it unset to use `runtime_outputs/flux_schnell`.
+
+---
+
+## 2. Environment Variable
+Use this variable in `.env`:
 ```python
-FLUX_SCHNELL_FOLDER = "FLUX_SCHNELL_FOLDER_PATH"
+FLUX_SCHNELL_OUTPUT_FOLDER=runtime_outputs/flux_schnell
 ```

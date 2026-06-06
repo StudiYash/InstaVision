@@ -1,13 +1,25 @@
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv()
 import replicate
 import requests
 
 # Set your Replicate API token
-os.environ["REPLICATE_API_TOKEN"] = "ENTER_YOUR_TOKEN_HERE"
+os.environ["REPLICATE_API_TOKEN"] = os.getenv("REPLICATE_API_TOKEN", "ENTER_YOUR_TOKEN_HERE")
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parents[1]
+RUNTIME_OUTPUTS_DIR = PROJECT_ROOT / "runtime_outputs"
+UPLOADS_DIR = RUNTIME_OUTPUTS_DIR / "uploads"
+GENERATED_DIR = RUNTIME_OUTPUTS_DIR / "generated"
+for folder in [UPLOADS_DIR, GENERATED_DIR]:
+    folder.mkdir(parents=True, exist_ok=True)
 
 # Function to upload an image to ImgBB
 def upload_to_imgbb(image_path):
-    imgbb_api_key = "ENTER_IMGBB_API_KEY_HERE"  # Get an API key from ImgBB (free, no account required)
+    imgbb_api_key = os.getenv("IMGBB_API_KEY", "ENTER_IMGBB_API_KEY_HERE")  # Get an API key from ImgBB (free, no account required)
     with open(image_path, "rb") as image_file:
         response = requests.post(
             "https://api.imgbb.com/1/upload",
@@ -20,29 +32,34 @@ def upload_to_imgbb(image_path):
     else:
         raise Exception(f"ImgBB upload failed: {response_data}")
 
-# Provide the local path of your image
-local_image_path = "C:/Users/Desktop/TA.png"
 
-try:
-    # Upload the image to ImgBB
-    uploaded_image_url = upload_to_imgbb(local_image_path)
-    print("Uploaded Image URL:", uploaded_image_url)
+def main():
+    # Provide the local path of your image
+    local_image_path = Path(os.getenv("INPUT_IMAGE_PATH", str(UPLOADS_DIR / "TA.png"))).expanduser()
+    
+    try:
+        # Upload the image to ImgBB
+        uploaded_image_url = upload_to_imgbb(local_image_path)
+        print("Uploaded Image URL:", uploaded_image_url)
+    
+        # Define input parameters for the Replicate model
+        inputs = {
+            "steps": 28,
+            "prompt": "a photo of a car on a city street",
+            "guidance": 25,
+            "control_image": uploaded_image_url
+        }
+    
+        # Run the Replicate model
+        output = replicate.run("black-forest-labs/flux-canny-pro", input=inputs)
+    
+        # Save the output to a local file
+        output_file_path = GENERATED_DIR / "output.jpg"
+        with open(output_file_path, "wb") as file:
+            file.write(output.read())
+        print(f"Output saved as {output_file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-    # Define input parameters for the Replicate model
-    inputs = {
-        "steps": 28,
-        "prompt": "a photo of a car on a city street",
-        "guidance": 25,
-        "control_image": uploaded_image_url
-    }
-
-    # Run the Replicate model
-    output = replicate.run("black-forest-labs/flux-canny-pro", input=inputs)
-
-    # Save the output to a local file
-    output_file_path = "output.jpg"
-    with open(output_file_path, "wb") as file:
-        file.write(output.read())
-    print(f"Output saved as {output_file_path}")
-except Exception as e:
-    print(f"An error occurred: {e}")
+if __name__ == "__main__":
+    main()

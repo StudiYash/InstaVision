@@ -13,21 +13,24 @@ import asyncio
 from queue import Queue
 import re
 from PIL import Image, ImageDraw, ImageFont
+from dotenv import load_dotenv
+from pathlib import Path
 
-# Additional authentication is required for Google Colab
-if "google.colab" in sys.modules:
-    # Authenticate user to Google Cloud
+load_dotenv()
+
+try:
     from google.colab import auth
-    auth.authenticate_user()
+except ImportError:
+    auth = None
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Bot Constants (Replace these with your own credentials)
-TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'  # Replace with your actual bot token
-BOT_USERNAME = '@YOUR_BOT_USERNAME'  # Add your bot's username here
-GROUP_CHAT_ID = 'YOUR_GROUP_CHAT_ID'  # Replace with your group's chat ID
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', 'YOUR_TELEGRAM_BOT_TOKEN')  # Replace with your actual bot token
+BOT_USERNAME = os.getenv('TELEGRAM_BOT_USERNAME', '@YOUR_BOT_USERNAME')  # Add your bot's username here
+GROUP_CHAT_ID = os.getenv('TELEGRAM_GROUP_CHAT_ID', 'YOUR_GROUP_CHAT_ID')  # Replace with your group's chat ID
 
 # We remove the Google Cloud Imagen references; keeping placeholders if needed.
 # Google Cloud project information (currently not used, so can be kept empty)
@@ -40,7 +43,17 @@ LOCATION = ""
 BANNED_WORDS = ['word1','word2']  # Add more words if necessary
 
 # Path to store local images
-LOCAL_IMAGE_FOLDER = "/content/drive/MyDrive/YourFolderPath/"  # Replace with your actual folder path
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parents[2]
+RUNTIME_OUTPUTS_DIR = PROJECT_ROOT / "runtime_outputs"
+
+LOCAL_IMAGE_FOLDER = os.getenv(
+    'GOOGLE_IMAGEN3_OUTPUT_FOLDER',
+    os.getenv('LOCAL_IMAGE_OUTPUT_FOLDER', str(RUNTIME_OUTPUTS_DIR / "google_imagen3"))
+)  # Replace with your actual folder path
+LOCAL_IMAGE_FOLDER = Path(LOCAL_IMAGE_FOLDER).expanduser()
+WATERMARK_FONT_PATH = os.getenv('WATERMARK_FONT_PATH', str(SCRIPT_DIR / "HIGHSENS 400.otf"))
+LOCAL_IMAGE_FOLDER.mkdir(parents=True, exist_ok=True)
 
 # Function to add watermark (remains in the code, though image generation is disabled)
 def add_watermark(input_image_path, output_image_path, watermark_text="InstaVision",
@@ -58,7 +71,7 @@ def add_watermark(input_image_path, output_image_path, watermark_text="InstaVisi
 
         # Load the font with the specified size
         # NOTE: Update the font path if you have a TTF font file
-        font = ImageFont.truetype("", font_size)  
+        font = ImageFont.truetype(WATERMARK_FONT_PATH, font_size)  
 
         # Get the bounding box of the watermark text
         bbox = draw.textbbox((0, 0), watermark_text, font=font)
@@ -92,9 +105,9 @@ def add_watermark(input_image_path, output_image_path, watermark_text="InstaVisi
 def connect_redis():
     try:
         r = redis.Redis(
-            host='YOUR_REDIS_HOST',  # Replace with your Redis Host
-            port=YOUR_REDIS_PORT,  # Replace with your Redis Port
-            password='YOUR_REDIS_PASSWORD',  # Replace with your Redis Password
+            host=os.getenv('REDIS_HOST', 'YOUR_REDIS_HOST'),  # Replace with your Redis Host
+            port=os.getenv('REDIS_PORT', 'YOUR_REDIS_PORT'),  # Replace with your Redis Port
+            password=os.getenv('REDIS_PASSWORD', 'YOUR_REDIS_PASSWORD'),  # Replace with your Redis Password
             db=0,
             decode_responses=True
         )
@@ -105,7 +118,7 @@ def connect_redis():
         logger.error(f"Redis connection failed: {e}")
         return None
 
-r = connect_redis()
+r = None
 
 # Initialize request queue
 request_queue = Queue()
@@ -343,6 +356,9 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('An unexpected error occurred. Please try again later.')
 
 if __name__ == '__main__':
+    r = connect_redis()
+    if auth:
+        auth.authenticate_user()
     nest_asyncio.apply()  # Ensure nested event loops are allowed (for Jupyter or Colab environments)
     app = Application.builder().token(TOKEN).build()
 

@@ -1,0 +1,4 @@
+# Frontend Tkinter UI dependencies.
+# tkinter is normally bundled with Python and is not installed through pip.
+
+Pillow

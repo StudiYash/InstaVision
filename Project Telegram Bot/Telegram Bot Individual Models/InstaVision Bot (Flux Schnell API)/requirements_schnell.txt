@@ -5,3 +5,4 @@ requests==2.31.0
 redis==4.6.0
 replicate
 Pillow
+python-dotenv

@@ -26,6 +26,10 @@ import openpyxl
 from openpyxl import Workbook, load_workbook
 import base64
 from io import BytesIO
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv()
 
 # =============================================================
 #               Logging Configuration
@@ -39,30 +43,45 @@ logger = logging.getLogger(__name__)
 # =============================================================
 #                 Bot & API Configuration
 # =============================================================
-TOKEN = 'TELEGRAM BOT TOKEN'                 # Replace with actual bot token
-BOT_USERNAME = 'TELEGRAM BOT USERNAME'       # e.g. "my_bot"
-GROUP_CHAT_ID = 'TELEGRAM GROUP CHAT ID'     # e.g. -100123456789
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', 'TELEGRAM BOT TOKEN')                 # Replace with actual bot token
+BOT_USERNAME = os.getenv('TELEGRAM_BOT_USERNAME', 'TELEGRAM BOT USERNAME')    # e.g. "my_bot"
+GROUP_CHAT_ID = os.getenv('TELEGRAM_GROUP_CHAT_ID', 'TELEGRAM GROUP CHAT ID') # e.g. -100123456789
 
-openai.api_key = 'OPENAI API KEY'            # Replace with your OpenAI API key
-os.environ['REPLICATE_API_TOKEN'] = 'REPLICATE API KEY'
+openai.api_key = os.getenv('OPENAI_API_KEY', 'OPENAI API KEY')                # Replace with your OpenAI API key
+os.environ['REPLICATE_API_TOKEN'] = os.getenv('REPLICATE_API_TOKEN', 'REPLICATE API KEY')
 
 # =============================================================
 #                Global Constants & Variables
 # =============================================================
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+RUNTIME_OUTPUTS_DIR = PROJECT_ROOT / "runtime_outputs"
+GENERATED_DIR = RUNTIME_OUTPUTS_DIR / "generated"
+WATERMARKED_DIR = RUNTIME_OUTPUTS_DIR / "watermarked"
+METRICS_DIR = RUNTIME_OUTPUTS_DIR / "metrics"
+
+def runtime_path_from_env(env_name, fallback_path):
+    return Path(os.getenv(env_name, str(fallback_path))).expanduser()
+
+def default_watermark_font_path():
+    font_path = SCRIPT_DIR / "Support Files" / "HIGHSENS 400.otf"
+    return str(font_path) if font_path.exists() else ""
+
 BANNED_WORDS = [
     'WORD1', 'WORD2'
 ]
 
 # Local folders for saving images
-SDXL_LIGHTNING_FOLDER = "SDXL_LIGHTNING_FOLDER_PATH"
-FLUX_SCHNELL_FOLDER = "FLUX_SCHNELL_FOLDER_PATH"
-DALLE_FOLDER = "DALLE3_FOLDER_PATH"
+SDXL_LIGHTNING_FOLDER = runtime_path_from_env('SDXL_LIGHTNING_OUTPUT_FOLDER', RUNTIME_OUTPUTS_DIR / "sdxl_lightning")
+FLUX_SCHNELL_FOLDER = runtime_path_from_env('FLUX_SCHNELL_OUTPUT_FOLDER', RUNTIME_OUTPUTS_DIR / "flux_schnell")
+DALLE_FOLDER = runtime_path_from_env('DALLE3_OUTPUT_FOLDER', RUNTIME_OUTPUTS_DIR / "dalle3")
 
-for folder in [SDXL_LIGHTNING_FOLDER, FLUX_SCHNELL_FOLDER, DALLE_FOLDER]:
-    if not os.path.exists(folder):
-        os.makedirs(folder)
+for folder in [SDXL_LIGHTNING_FOLDER, FLUX_SCHNELL_FOLDER, DALLE_FOLDER, GENERATED_DIR, WATERMARKED_DIR, METRICS_DIR]:
+    folder.mkdir(parents=True, exist_ok=True)
 
-EXCEL_FILE_PATH = "instavision_metrics.xlsx Path"
+EXCEL_FILE_PATH = runtime_path_from_env('METRICS_WORKBOOK_PATH', METRICS_DIR / "instavision_metrics.xlsx")
+EXCEL_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
+WATERMARK_FONT_PATH = os.getenv('WATERMARK_FONT_PATH', default_watermark_font_path())
 
 # User role configurations
 unlimited_users = ['USERNAME1', 'USERNAME2']       # e.g. admin users
@@ -73,9 +92,9 @@ custom_banned_users = ['USERNAME5', 'USERNAME6']   # permanently banned
 def connect_redis():
     try:
         r = redis.Redis(
-            host='REDIS HOST',
-            port=9999,
-            password='REDIS PASSWORD',
+            host=os.getenv('REDIS_HOST', 'REDIS HOST'),
+            port=int(os.getenv('REDIS_PORT', '9999')),
+            password=os.getenv('REDIS_PASSWORD', 'REDIS PASSWORD'),
             db=0,
             decode_responses=True
         )
@@ -86,7 +105,7 @@ def connect_redis():
         logger.error(f"Redis connection failed: {e}")
         return None
 
-r = connect_redis()
+r = None
 
 # Asynchronous queue for requests
 request_queue = asyncio.Queue()
@@ -98,9 +117,9 @@ awaiting_feedback = {}
 # =============================================================
 def send_error_email(subject, body):
     try:
-        sender_email = "SENDER MAIL ADDRESS"
-        receiver_email = "RECEIVER MAIL ADDRESS"
-        app_password = "SENDER APP PASSWORD"
+        sender_email = os.getenv('EMAIL_SENDER', "SENDER MAIL ADDRESS")
+        receiver_email = os.getenv('EMAIL_RECEIVER', "RECEIVER MAIL ADDRESS")
+        app_password = os.getenv('EMAIL_APP_PASSWORD', "SENDER APP PASSWORD")
 
         yag = yagmail.SMTP(sender_email, app_password)
         yag.send(to=receiver_email, subject=subject, contents=body)
@@ -233,7 +252,7 @@ def generate_image_sdxl(prompt: str):
         image_data = file_output.read()
         image = Image.open(BytesIO(image_data))
 
-        image_filename = f"generated_image_sdxl_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+        image_filename = GENERATED_DIR / f"generated_image_sdxl_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
         image.save(image_filename)
         return image_filename
     except Exception as e:
@@ -262,7 +281,7 @@ def generate_image_flux_schnell(prompt: str):
         image_data = file_output.read()
         image = Image.open(BytesIO(image_data))
 
-        image_filename = f"generated_image_flux_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+        image_filename = GENERATED_DIR / f"generated_image_flux_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
         image.save(image_filename)
         return image_filename
     except Exception as e:
@@ -350,7 +369,7 @@ def add_watermark(
         draw = ImageDraw.Draw(watermark)
 
         try:
-            font = ImageFont.truetype("HIGHSENS 400.otf Path", font_size)
+            font = ImageFont.truetype(WATERMARK_FONT_PATH, font_size)
         except IOError:
             logger.warning("Specified font not found. Using default font.")
             font = ImageFont.load_default()
@@ -426,8 +445,6 @@ def init_excel_file():
         logger.info("Excel file created and initialized.")
     else:
         logger.info("Excel file already exists.")
-
-init_excel_file()
 
 def update_metrics(user_id, username, command, prompt):
     """
@@ -640,14 +657,14 @@ async def feedback_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def send_feedback_email(user_id, username, feedback_message):
     try:
-        sender_email = "SENDER MAIL ADDRESS"
-        receiver_email = "RECEIVER MAIL ADDRESS"
+        sender_email = os.getenv('EMAIL_SENDER', "SENDER MAIL ADDRESS")
+        receiver_email = os.getenv('EMAIL_RECEIVER', "RECEIVER MAIL ADDRESS")
         subject = "Feedback from InstaVision User"
         body = (
             f"User ID: {user_id}\nUsername: {username}\nFeedback:\n{feedback_message}"
         )
 
-        yag = yagmail.SMTP(sender_email, 'SENDER APP PASSWORD')
+        yag = yagmail.SMTP(sender_email, os.getenv('EMAIL_APP_PASSWORD', 'SENDER APP PASSWORD'))
         yag.send(to=receiver_email, subject=subject, contents=body)
         logger.info(f"Feedback email sent from user {user_id}")
         return True
@@ -1001,18 +1018,18 @@ async def process_queue():
                 # Download the generated image
                 response = requests.get(image_url, timeout=60)
                 image_bytes = io.BytesIO(response.content)
-                input_image_path = f"generated_image_{user_id}.png"
+                input_image_path = GENERATED_DIR / f"generated_image_{user_id}.png"
                 with open(input_image_path, 'wb') as f:
                     f.write(image_bytes.getbuffer())
 
                 # Watermark
-                output_image_path = f"watermarked_image_{user_id}.png"
+                output_image_path = WATERMARKED_DIR / f"watermarked_image_{user_id}.png"
                 add_watermark(input_image_path, output_image_path, "InstaVision")
 
                 # Save locally
                 try:
                     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    local_image_copy_path = os.path.join(save_folder, f"{user_id}_{current_time}.png")
+                    local_image_copy_path = save_folder / f"{user_id}_{current_time}.png"
                     watermarked_img = Image.open(output_image_path)
                     watermarked_img.save(local_image_copy_path, format="PNG")
                     logger.info(f"Watermarked image saved locally at {local_image_copy_path}")
@@ -1048,13 +1065,13 @@ async def process_queue():
                 continue
 
             # Watermark for /sdxl or /flux
-            output_image_path = f"watermarked_image_{user_id}.png"
+            output_image_path = WATERMARKED_DIR / f"watermarked_image_{user_id}.png"
             add_watermark(image_path, output_image_path, "InstaVision")
 
             # Save locally
             try:
                 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-                local_image_copy_path = os.path.join(save_folder, f"{user_id}_{current_time}.png")
+                local_image_copy_path = save_folder / f"{user_id}_{current_time}.png"
                 watermarked_img = Image.open(output_image_path)
                 watermarked_img.save(local_image_copy_path, format="PNG")
                 logger.info(f"Watermarked image saved locally at {local_image_copy_path}")
@@ -1114,6 +1131,8 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
 #                  Main Entrypoint
 # =============================================================
 if __name__ == '__main__':
+    r = connect_redis()
+    init_excel_file()
     nest_asyncio.apply()
     app = Application.builder().token(TOKEN).build()
 

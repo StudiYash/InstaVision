@@ -1,0 +1,7 @@
+# Convenience dependency set for all Python-based InstaVision components.
+# Colab-only modules such as google.colab are not installed by pip here.
+
+-r frontend.txt
+-r backend.txt
+-r telegram-main.txt
+-r telegram-individual.txt

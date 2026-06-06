@@ -10,3 +10,4 @@ translate
 langdetect
 yagmail
 openpyxl
+python-dotenv

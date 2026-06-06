@@ -5,3 +5,4 @@ requests==2.31.0
 redis==4.6.0
 Pillow
 google-cloud-aiplatform
+python-dotenv

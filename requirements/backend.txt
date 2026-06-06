@@ -1,0 +1,8 @@
+# Backend model script dependencies.
+# Some backend scripts include Google Colab-only imports such as google.colab.
+# Those are intentionally not included for normal local installation.
+
+replicate
+requests
+Pillow
+python-dotenv

@@ -12,6 +12,10 @@ from queue import Queue
 import re
 from PIL import Image, ImageDraw, ImageFont
 import openai
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv()
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO,
@@ -19,18 +23,28 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 
 # Bot Constants (Replace these with your own credentials)
-TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN'  # Replace with your actual bot token
-BOT_USERNAME = '@YOUR_BOT_USERNAME'  # Add your bot's username here
-GROUP_CHAT_ID = 'YOUR_GROUP_CHAT_ID'  # Replace with your group's chat ID
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', 'YOUR_TELEGRAM_BOT_TOKEN')  # Replace with your actual bot token
+BOT_USERNAME = os.getenv('TELEGRAM_BOT_USERNAME', '@YOUR_BOT_USERNAME')  # Add your bot's username here
+GROUP_CHAT_ID = os.getenv('TELEGRAM_GROUP_CHAT_ID', 'YOUR_GROUP_CHAT_ID')  # Replace with your group's chat ID
 
 # Set OpenAI API key
-openai.api_key = 'YOUR_OPEN AI_API_TOKEN'  # Replace with your OpenAI API key
+openai.api_key = os.getenv('OPENAI_API_KEY', 'YOUR_OPEN AI_API_TOKEN')  # Replace with your OpenAI API key
 
 # List of banned words
 BANNED_WORDS = ["Word1", "Word2", "Word3"]  # Add the words you want to ban
 
 # Path to store local images
-LOCAL_IMAGE_FOLDER = "/content/drive/MyDrive/YourFolderPath/"  # Replace with your actual folder path
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parents[2]
+RUNTIME_OUTPUTS_DIR = PROJECT_ROOT / "runtime_outputs"
+GENERATED_DIR = RUNTIME_OUTPUTS_DIR / "generated"
+WATERMARKED_DIR = RUNTIME_OUTPUTS_DIR / "watermarked"
+
+LOCAL_IMAGE_FOLDER = Path(os.getenv(
+    'DALLE3_OUTPUT_FOLDER',
+    os.getenv('LOCAL_IMAGE_OUTPUT_FOLDER', str(RUNTIME_OUTPUTS_DIR / "dalle3"))
+)).expanduser()
+WATERMARK_FONT_PATH = os.getenv('WATERMARK_FONT_PATH', str(SCRIPT_DIR / "HIGHSENS 400.otf"))
 
 # Function to add watermark
 def add_watermark(input_image_path, output_image_path, watermark_text="InstaVision", font_size=30,
@@ -48,7 +62,7 @@ def add_watermark(input_image_path, output_image_path, watermark_text="InstaVisi
 
         # Load font
         try:
-            font = ImageFont.truetype("/content/drive/MyDrive/HIGHSENS 400.otf", font_size)
+            font = ImageFont.truetype(WATERMARK_FONT_PATH, font_size)
         except IOError:
             logger.warning("Specified font not found. Using default font.")
             font = ImageFont.load_default()
@@ -97,17 +111,17 @@ def add_watermark(input_image_path, output_image_path, watermark_text="InstaVisi
         logger.error(f"Error adding watermark: {e}")
         raise e
 
-# Ensure the local image folder exists
-if not os.path.exists(LOCAL_IMAGE_FOLDER):
-    os.makedirs(LOCAL_IMAGE_FOLDER)
+# Ensure runtime folders exist
+for folder in [LOCAL_IMAGE_FOLDER, GENERATED_DIR, WATERMARKED_DIR]:
+    folder.mkdir(parents=True, exist_ok=True)
 
 # Connect to Redis (Replace these with your own credentials)
 def connect_redis():
     try:
         r = redis.Redis(
-            host='YOUR_REDIS_HOST',  # Replace with your Redis Host
-            port=YOUR_REDIS_PORT,  # Replace with your Redis Port
-            password='YOUR_REDIS_PASSWORD',  # Replace with your Redis Password
+            host=os.getenv('REDIS_HOST', 'YOUR_REDIS_HOST'),  # Replace with your Redis Host
+            port=os.getenv('REDIS_PORT', 'YOUR_REDIS_PORT'),  # Replace with your Redis Port
+            password=os.getenv('REDIS_PASSWORD', 'YOUR_REDIS_PASSWORD'),  # Replace with your Redis Password
             db=0,
             decode_responses=True
         )
@@ -119,7 +133,7 @@ def connect_redis():
         logger.error(f"Redis connection failed: {e}")
         return None
 
-r = connect_redis()
+r = None
 
 # Initialize queue
 request_queue = Queue()
@@ -334,18 +348,18 @@ async def process_queue():
                 image_bytes = io.BytesIO(response.content)
 
                 # Save the generated image locally for watermarking
-                input_image_path = f"generated_image_{user_id}.png"
+                input_image_path = GENERATED_DIR / f"generated_image_{user_id}.png"
                 with open(input_image_path, 'wb') as f:
                     f.write(image_bytes.getbuffer())
 
                 # Apply watermark
-                output_image_path = f"watermarked_image_{user_id}.png"
+                output_image_path = WATERMARKED_DIR / f"watermarked_image_{user_id}.png"
                 add_watermark(input_image_path, output_image_path, "InstaVision")
 
                 # Save the watermarked image locally
                 try:
                     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    local_image_copy_path = os.path.join(LOCAL_IMAGE_FOLDER, f"{user_id}_{current_time}.png")
+                    local_image_copy_path = LOCAL_IMAGE_FOLDER / f"{user_id}_{current_time}.png"
                     watermarked_img = Image.open(output_image_path)
                     watermarked_img.save(local_image_copy_path, format="PNG")
 
@@ -357,7 +371,7 @@ async def process_queue():
                 await app.bot.send_photo(chat_id=user_chat_id, photo=open(output_image_path, 'rb'))
 
                 # Send the image to the group
-                await send_image_to_group(output_image_path, user_id, username, description)
+                await send_image_to_group(str(output_image_path), user_id, username, description)
             except Exception as e:
                 logger.error(f"Error in process_queue: {e}")
                 await app.bot.send_message(chat_id=user_chat_id, text=f"{str(e)}")
@@ -383,6 +397,7 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('An unexpected error occurred. Please try again later.')
 
 if __name__ == '__main__':
+    r = connect_redis()
     nest_asyncio.apply()  # Ensure that nested event loops are allowed
     app = Application.builder().token(TOKEN).build()
 

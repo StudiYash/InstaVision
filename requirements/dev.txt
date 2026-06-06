@@ -1,0 +1,4 @@
+# Minimal development helpers for future stabilization phases.
+
+pytest
+python-dotenv

@@ -1,0 +1,55 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environments
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+env/
+ENV/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime logs and temporary files
+runtime_outputs/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+~$*
+
+# Runtime-generated images and working files
+generated_*.png
+generated_*.jpg
+generated_*.jpeg
+generated_*.webp
+generated_image_*.png
+generated_image_*.jpg
+watermarked_image_*.png
+watermarked_image_*.jpg
+uploaded_*.png
+uploaded_*.jpg
+uploaded_*.jpeg
+uploaded_*.webp
+
+# Runtime metrics/workbooks created during local operation
+instavision_metrics.xlsx
+
+# Local editor and OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Do not ignore project showcase assets, certificates, screenshots, docs,
+# real-life usage images, or Project Windows Application/InstaVision.exe.
